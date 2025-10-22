@@ -124,9 +124,9 @@ ul {
   }
 }
 .hero__image--right {
-  width: 966px;
-  height: 644px;
-  right: -102px;
+  width: 717px;
+  height: 846px;
+  right: -191px;
   top: 205px;
 }
 @media (max-width: 768px) {
