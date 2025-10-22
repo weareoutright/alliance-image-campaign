@@ -174,6 +174,13 @@ ul {
     z-index: 2;
   }
 
+  &__color-overlay {
+    @include absolute-fill;
+    object-fit: contain;
+    object-position: center;
+    z-index: 2.5;
+  }
+
   &__image {
     position: absolute;
     object-fit: cover;
