@@ -395,16 +395,14 @@ ul {
 
 .info-card {
   display: flex;
-  gap: $spacing-lg;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: $spacing-xl;
-  padding: $spacing-xl;
   border-radius: $radius-md;
   background-color: transparent;
+  overflow: hidden;
 
   @include respond-to($breakpoint-mobile) {
     flex-direction: column;
-    padding: $spacing-md;
   }
 
   &--plum {
@@ -434,6 +432,11 @@ ul {
   &__content {
     flex: 1;
     max-width: 450px;
+    padding: $spacing-xl;
+
+    @include respond-to($breakpoint-mobile) {
+      padding: $spacing-md;
+    }
   }
 
   &__title {
@@ -507,8 +510,7 @@ ul {
   &__image {
     flex: 1;
     max-width: 524px;
-    border-radius: $radius-md;
-    overflow: hidden;
+    display: flex;
 
     @include respond-to($breakpoint-mobile) {
       width: 100%;
