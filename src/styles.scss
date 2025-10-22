@@ -478,6 +478,7 @@ ul {
     letter-spacing: 1.98px;
     color: $color-off-black;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     .info-card--plum & {
       border-color: $color-plum;
@@ -572,8 +573,6 @@ ul {
 
 .quote {
   position: relative;
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
   padding: $spacing-xxl $spacing-xl;
   text-align: center;
   background: linear-gradient(
@@ -586,15 +585,21 @@ ul {
   &::before {
     content: '';
     @include absolute-fill;
-    background-image: url('assets/images/quote-background.jpg');
+    background-image: url('/assets/images/quote-background.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0.31;
     z-index: -1;
   }
 
   @include respond-to($breakpoint-mobile) {
     padding: $spacing-xl $spacing-md;
+  }
+
+  .container {
+    max-width: $breakpoint-tablet;
+    margin: 0 auto;
   }
 
   &__mark {
