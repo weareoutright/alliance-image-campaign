@@ -2,8 +2,8 @@
 node_modules/
 package-lock.json
 
-# Build artifacts (compiled CSS is committed for GitHub Pages)
-# styles.css and styles.css.map are intentionally tracked
+# Build artifacts
+# assets/css/ is intentionally tracked for GitHub Pages deployment
 
 # IDE
 .idea/

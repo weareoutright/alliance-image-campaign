@@ -23,13 +23,14 @@ This landing page promotes careers in home healthcare, featuring:
 ```
 alliance-image-campaign/
 ├── index.html              # Main HTML file
-├── styles.css              # Compiled CSS (generated from src/)
-├── styles.css.map          # CSS source map
 ├── package.json            # Project metadata
-├── src/                    # Source files
-│   ├── index.js            # JavaScript source
-│   └── styles.scss         # SCSS source
-├── assets/
+├── src/                    # Source files (compiled/transformed)
+│   └── styles.scss         # SCSS source → compiled to assets/css/
+├── assets/                 # All served assets
+│   ├── css/               # Compiled CSS
+│   │   ├── styles.css     # Generated from src/styles.scss
+│   │   └── styles.css.map # Source map
+│   ├── index.js           # JavaScript (no transformation needed)
 │   ├── images/            # Image assets
 │   │   ├── hero-background.jpg
 │   │   ├── hero-person-left.jpg
@@ -337,7 +338,7 @@ This project is configured for automatic deployment to GitHub Pages. See [DEPLOY
 
 ### Changing Colors
 
-Edit the color variables in `src/styles.scss`:
+Edit the color variables in `src/styles.scss`, then rebuild:
 
 ```scss
 $color-off-black: #0f0f0f;
@@ -348,7 +349,7 @@ $color-peach: #e5a369;
 
 ### Adjusting Carousel
 
-To change the number of slides, update in `src/index.js`:
+To change the number of slides, update in `assets/index.js`:
 
 ```javascript
 const totalSlides = 6; // Change this number
@@ -356,7 +357,7 @@ const totalSlides = 6; // Change this number
 
 ### Adding FAQ Content
 
-Add new FAQ data in `src/index.js`:
+Add new FAQ data in `assets/index.js`:
 
 ```javascript
 const faqData = {

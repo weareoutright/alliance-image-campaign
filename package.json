@@ -2,11 +2,11 @@
   "name": "alliance-image-campaign",
   "version": "1.0.0",
   "description": "Alliance for Care at Home - Landing Page Campaign",
-  "main": "src/index.js",
+  "main": "assets/index.js",
   "scripts": {
-    "sass:watch": "sass --watch src/styles.scss:styles.css",
-    "sass:build": "sass src/styles.scss:styles.css",
-    "sass:build:prod": "sass --style=compressed src/styles.scss:styles.css",
+    "sass:watch": "sass --watch src/styles.scss:assets/css/styles.css",
+    "sass:build": "sass src/styles.scss:assets/css/styles.css",
+    "sass:build:prod": "sass --style=compressed src/styles.scss:assets/css/styles.css",
     "serve": "npx http-server -p 8000 -o",
     "dev": "npm run sass:watch & npm run serve"
   },
