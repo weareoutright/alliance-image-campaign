@@ -71,6 +71,7 @@ ul {
 .hero__shape {
   position: absolute;
   pointer-events: none;
+  border-radius: 80px;
 }
 .hero__shape--intersect {
   width: 991px;
@@ -79,6 +80,7 @@ ul {
   left: 232px;
   transform: rotate(357.178deg);
   opacity: 0.3;
+  background-color: #a3c2bf;
 }
 .hero__shape--subtract-1 {
   width: 1170px;
@@ -87,6 +89,7 @@ ul {
   left: 564px;
   transform: rotate(357.178deg);
   opacity: 0.2;
+  background-color: #5d113c;
 }
 .hero__shape--subtract-2 {
   width: 544px;
@@ -95,6 +98,7 @@ ul {
   left: 109px;
   transform: rotate(357.178deg);
   opacity: 0.25;
+  background-color: #e7dac4;
 }
 .hero__background-image {
   position: absolute;
@@ -105,16 +109,6 @@ ul {
   object-fit: cover;
   opacity: 0.16;
   z-index: 2;
-}
-.hero__color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  z-index: 2.5;
 }
 .hero__image {
   position: absolute;

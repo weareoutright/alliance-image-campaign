@@ -138,6 +138,7 @@ ul {
   &__shape {
     position: absolute;
     pointer-events: none;
+    border-radius: 80px;
 
     &--intersect {
       width: 991px;
@@ -146,6 +147,7 @@ ul {
       left: 232px;
       transform: rotate(357.178deg);
       opacity: 0.3;
+      background-color: $color-sage;
     }
 
     &--subtract-1 {
@@ -155,6 +157,7 @@ ul {
       left: 564px;
       transform: rotate(357.178deg);
       opacity: 0.2;
+      background-color: $color-plum;
     }
 
     &--subtract-2 {
@@ -164,6 +167,7 @@ ul {
       left: 109px;
       transform: rotate(357.178deg);
       opacity: 0.25;
+      background-color: $color-cream;
     }
   }
 
@@ -172,13 +176,6 @@ ul {
     object-fit: cover;
     opacity: 0.16;
     z-index: 2;
-  }
-
-  &__color-overlay {
-    @include absolute-fill;
-    object-fit: contain;
-    object-position: center;
-    z-index: 2.5;
   }
 
   &__image {
