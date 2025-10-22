@@ -193,53 +193,42 @@
   // ==========================================================================
 
   function initFAQModal() {
-    faqModal.element = document.getElementById('faq-modal');
-    faqModal.overlay = faqModal.element?.querySelector('.faq-modal__overlay');
-    faqModal.content = faqModal.element?.querySelector('.faq-modal__content');
-
-    if (!faqModal.element) return;
-
     // Add click handlers to all FAQ buttons
     const faqButtons = document.querySelectorAll('[data-faq]');
     faqButtons.forEach(button => {
-      button.addEventListener('click', handleFAQOpen);
-    });
-
-    // Close modal handlers
-    faqModal.overlay?.addEventListener('click', handleFAQClose);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && faqModal.element.getAttribute('aria-hidden') === 'false') {
-        handleFAQClose();
-      }
+      button.addEventListener('click', handleFAQToggle);
     });
   }
 
-  function handleFAQOpen(e) {
-    const faqType = e.currentTarget.getAttribute('data-faq');
-    const faqContent = getFAQContent(faqType);
+  function handleFAQToggle(e) {
+    const button = e.currentTarget;
+    const faqType = button.getAttribute('data-faq');
+    const card = button.closest('.info-card');
 
-    if (faqModal.content && faqModal.element) {
-      faqModal.content.innerHTML = faqContent;
-      faqModal.element.style.display = 'flex';
-      faqModal.element.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+    if (!card) return;
 
-      // Add event listener to the dynamically created close button
-      const closeBtn = faqModal.content.querySelector('.faq-close-btn');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', handleFAQClose);
-      }
+    // Check if FAQ is already open
+    const existingFAQ = card.querySelector('.info-card__faq');
+
+    if (existingFAQ) {
+      // Close the FAQ
+      existingFAQ.remove();
+      button.setAttribute('aria-expanded', 'false');
+      button.querySelector('.info-card__cta-icon').textContent = '+';
+    } else {
+      // Open the FAQ
+      const faqContent = getFAQContent(faqType);
+      const faqElement = document.createElement('div');
+      faqElement.className = 'info-card__faq';
+      faqElement.innerHTML = faqContent;
+
+      // Insert after the content div
+      const contentDiv = card.querySelector('.info-card__content');
+      contentDiv.appendChild(faqElement);
+
+      button.setAttribute('aria-expanded', 'true');
+      button.querySelector('.info-card__cta-icon').textContent = '−';
     }
-  }
-
-  function handleFAQClose() {
-    if (faqModal.element) {
-      faqModal.element.style.display = 'none';
-      faqModal.element.setAttribute('aria-hidden', 'true');
-    }
-    document.body.style.overflow = '';
   }
 
   function getFAQContent(type) {
@@ -291,34 +280,17 @@
     const data = faqData[type];
     if (!data) return '<p>FAQ content not found.</p>';
 
-    let html = `
-      <div class="info-card info-card--peach" style="display: flex;">
-        <div class="info-card__content">
-          <h3 class="info-card__title">${data.title}</h3>
-          <p class="info-card__description">${data.description}</p>
-          <button class="info-card__cta faq-close-btn">
-            <span>Close</span>
-            <span class="info-card__cta-icon">×</span>
-          </button>
-        </div>
-        <div class="info-card__image">
-          <img src="assets/images/collaborative-care.jpg" alt="${data.title}">
-        </div>
-      </div>
-      <div style="margin-top: 2rem;">
-        <h4 style="font-size: 24px; margin-bottom: 1rem;">Frequently Asked Questions</h4>
-    `;
+    let html = '';
 
     data.faqs.forEach(faq => {
       html += `
-        <div style="margin-bottom: 1.5rem;">
-          <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 0.5rem;">${faq.question}</h5>
-          <p style="font-size: 16px; line-height: 1.6;">${faq.answer}</p>
+        <div class="info-card__faq-item">
+          <h4 class="info-card__faq-question">${faq.question}</h4>
+          <p class="info-card__faq-answer">${faq.answer}</p>
         </div>
       `;
     });
 
-    html += '</div>';
     return html;
   }
 

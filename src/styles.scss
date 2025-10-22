@@ -395,7 +395,7 @@ ul {
 
 .info-card {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   margin-bottom: $spacing-xl;
   border-radius: $radius-md;
   background-color: transparent;
@@ -535,6 +535,35 @@ ul {
         height: 300px;
       }
     }
+  }
+
+  &__faq {
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($color-off-black, 0.1);
+  }
+
+  &__faq-item {
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__faq-question {
+    font-size: 18px;
+    font-weight: $font-weight-demi;
+    line-height: 28px;
+    margin-bottom: $spacing-sm;
+    color: $color-off-black;
+  }
+
+  &__faq-answer {
+    font-size: 16px;
+    font-weight: $font-weight-book;
+    line-height: 26px;
+    color: rgba($color-off-black, 0.8);
   }
 }
 
