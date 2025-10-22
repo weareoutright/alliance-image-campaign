@@ -359,9 +359,9 @@
 
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           navLinks.forEach(link => {
-            link.style.color = '';
+            link.classList.remove('nav__link--active');
             if (link.getAttribute('href') === `#${sectionId}`) {
-              link.style.color = '#e5a369'; // Peach color for active link
+              link.classList.add('nav__link--active');
             }
           });
         }
