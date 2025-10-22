@@ -182,7 +182,6 @@ ul {
 }
 @media (max-width: 768px) {
   .nav {
-    position: relative;
     height: 57px;
   }
 }

@@ -247,7 +247,6 @@ ul {
   width: 100%;
 
   @include respond-to($breakpoint-mobile) {
-    position: relative;
     height: 57px;
   }
 
