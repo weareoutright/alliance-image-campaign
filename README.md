@@ -22,11 +22,14 @@ This landing page promotes careers in home healthcare, featuring:
 
 ```
 alliance-image-campaign/
-├── index.html              # Main HTML file
-├── styles.scss             # SCSS styles (needs compilation)
-├── styles.css              # Compiled CSS (to be generated)
-├── index.js                # JavaScript functionality
+├── index.html              # Main HTML file (served from root)
+├── styles.css              # Compiled CSS (generated from src/)
+├── styles.css.map          # CSS source map
 ├── package.json            # Project metadata
+├── src/                    # Source files
+│   ├── index.html          # HTML source
+│   ├── index.js            # JavaScript source
+│   └── styles.scss         # SCSS source
 ├── assets/
 │   ├── images/            # Image assets
 │   │   ├── hero-background.jpg
