@@ -116,8 +116,6 @@ ul {
 .hero {
   position: relative;
   width: 100%;
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
   height: 840px;
   overflow: hidden;
   background-color: $color-white;
@@ -275,8 +273,6 @@ ul {
   background-color: $color-white;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
 
   @include respond-to($breakpoint-mobile) {
     position: relative;
@@ -288,6 +284,8 @@ ul {
     align-items: center;
     gap: 80px;
     height: 77px;
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
 
     @include respond-to($breakpoint-mobile) {
       gap: $spacing-md;

@@ -42,8 +42,6 @@ ul {
 .hero {
   position: relative;
   width: 100%;
-  max-width: 1512px;
-  margin: 0 auto;
   height: 840px;
   overflow: hidden;
   background-color: #ffffff;
@@ -204,8 +202,6 @@ ul {
   background-color: #ffffff;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: 1512px;
-  margin: 0 auto;
 }
 @media (max-width: 768px) {
   .nav {
@@ -218,6 +214,8 @@ ul {
   align-items: center;
   gap: 80px;
   height: 77px;
+  max-width: 1512px;
+  margin: 0 auto;
 }
 @media (max-width: 768px) {
   .nav__list {
