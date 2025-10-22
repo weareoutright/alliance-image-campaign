@@ -539,9 +539,20 @@ ul {
   }
 
   &__faq {
-    margin-top: $spacing-lg;
-    padding-top: $spacing-lg;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+    margin-top: 0;
+    padding-top: 0;
     border-top: 1px solid rgba($color-off-black, 0.1);
+
+    &--open {
+      max-height: 2000px;
+      opacity: 1;
+      margin-top: $spacing-lg;
+      padding-top: $spacing-lg;
+    }
   }
 
   &__faq-item {

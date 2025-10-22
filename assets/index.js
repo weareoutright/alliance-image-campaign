@@ -210,13 +210,18 @@
     // Check if FAQ is already open
     const existingFAQ = card.querySelector('.info-card__faq');
 
-    if (existingFAQ) {
+    if (existingFAQ && existingFAQ.classList.contains('info-card__faq--open')) {
       // Close the FAQ
-      existingFAQ.remove();
+      existingFAQ.classList.remove('info-card__faq--open');
       button.setAttribute('aria-expanded', 'false');
       button.querySelector('.info-card__cta-icon').textContent = '+';
+    } else if (existingFAQ) {
+      // FAQ exists but is closed, open it
+      existingFAQ.classList.add('info-card__faq--open');
+      button.setAttribute('aria-expanded', 'true');
+      button.querySelector('.info-card__cta-icon').textContent = '−';
     } else {
-      // Open the FAQ
+      // Create and open the FAQ
       const faqContent = getFAQContent(faqType);
       const faqElement = document.createElement('div');
       faqElement.className = 'info-card__faq';
@@ -225,6 +230,11 @@
       // Insert after the content div
       const contentDiv = card.querySelector('.info-card__content');
       contentDiv.appendChild(faqElement);
+
+      // Trigger animation by adding class after a small delay
+      setTimeout(() => {
+        faqElement.classList.add('info-card__faq--open');
+      }, 10);
 
       button.setAttribute('aria-expanded', 'true');
       button.querySelector('.info-card__cta-icon').textContent = '−';

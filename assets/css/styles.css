@@ -450,9 +450,19 @@ ul {
   }
 }
 .info-card__faq {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid rgba(15, 15, 15, 0.1);
+}
+.info-card__faq--open {
+  max-height: 2000px;
+  opacity: 1;
   margin-top: 32px;
   padding-top: 32px;
-  border-top: 1px solid rgba(15, 15, 15, 0.1);
 }
 .info-card__faq-item {
   margin-bottom: 32px;
