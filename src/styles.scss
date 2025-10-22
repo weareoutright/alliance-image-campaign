@@ -130,52 +130,18 @@ ul {
     z-index: 1;
   }
 
-  &__decorative-shapes {
-    @include absolute-fill;
-    opacity: 0.6;
-  }
-
-  &__shape {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 80px;
-
-    &--intersect {
-      width: 991px;
-      height: 1111px;
-      top: 16px;
-      left: 232px;
-      transform: rotate(357.178deg);
-      opacity: 0.3;
-      background-color: $color-sage;
-    }
-
-    &--subtract-1 {
-      width: 1170px;
-      height: 1655px;
-      top: -315px;
-      left: 564px;
-      transform: rotate(357.178deg);
-      opacity: 0.2;
-      background-color: $color-plum;
-    }
-
-    &--subtract-2 {
-      width: 544px;
-      height: 1155px;
-      top: 81px;
-      left: 109px;
-      transform: rotate(357.178deg);
-      opacity: 0.25;
-      background-color: $color-cream;
-    }
-  }
-
   &__background-image {
     @include absolute-fill;
     object-fit: cover;
     opacity: 0.16;
     z-index: 2;
+  }
+
+  &__color-overlay {
+    @include absolute-fill;
+    object-fit: contain;
+    object-position: center;
+    z-index: 2.5;
   }
 
   &__image {
