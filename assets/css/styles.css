@@ -80,6 +80,11 @@ ul {
   object-position: center;
   z-index: 2.5;
 }
+@media (max-width: 768px) {
+  .hero__color-overlay {
+    display: none;
+  }
+}
 .hero__image {
   position: absolute;
   object-fit: cover;
@@ -94,11 +99,12 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__image--left {
-    width: 50%;
-    height: auto;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 293px;
+    height: 346px;
+    left: -100px;
+    bottom: -84px;
+    top: auto;
+    transform: none;
   }
 }
 .hero__image--right {
@@ -109,11 +115,7 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__image--right {
-    width: 50%;
-    height: auto;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    display: none;
   }
 }
 .hero__content {
@@ -149,8 +151,9 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__title {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 50px;
+    line-height: 56px;
+    max-width: 333px;
   }
 }
 .hero__subtitle {
@@ -163,8 +166,9 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__subtitle {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 32px;
+    line-height: 47px;
+    max-width: 333px;
   }
 }
 
@@ -178,7 +182,7 @@ ul {
 }
 @media (max-width: 768px) {
   .nav {
-    position: relative;
+    height: 57px;
   }
 }
 .nav__list {
@@ -192,10 +196,7 @@ ul {
 }
 @media (max-width: 768px) {
   .nav__list {
-    gap: 24px;
-    flex-wrap: wrap;
-    padding: 16px;
-    height: auto;
+    display: none;
   }
 }
 .nav__link {
@@ -223,10 +224,39 @@ ul {
 .nav__link:hover::after, .nav__link--active::after {
   transform: scaleX(1);
 }
+.nav__mobile-menu {
+  display: none;
+}
 @media (max-width: 768px) {
-  .nav__link {
-    font-size: 16px;
+  .nav__mobile-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 57px;
+    padding: 0 24px;
+    gap: 12px;
   }
+}
+.nav__mobile-text {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #0f0f0f;
+}
+.nav__mobile-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.nav__mobile-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #0f0f0f;
 }
 
 .about {
