@@ -325,11 +325,20 @@ Key responsive behaviors:
 - Hero: Adjusted image positioning on mobile
 - Footer: Stacked layout on mobile
 
+## 🚀 Deployment
+
+This project is configured for automatic deployment to GitHub Pages. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
+
+**Quick Start:**
+1. Enable GitHub Actions in repository Settings → Pages
+2. Push to `main` branch
+3. Site automatically deploys at `https://[username].github.io/[repo-name]/`
+
 ## 🔧 Customization
 
 ### Changing Colors
 
-Edit the color variables in `styles.scss`:
+Edit the color variables in `src/styles.scss`:
 
 ```scss
 $color-off-black: #0f0f0f;
@@ -340,7 +349,7 @@ $color-peach: #e5a369;
 
 ### Adjusting Carousel
 
-To change the number of slides, update in `index.js`:
+To change the number of slides, update in `src/index.js`:
 
 ```javascript
 const totalSlides = 6; // Change this number
@@ -348,7 +357,7 @@ const totalSlides = 6; // Change this number
 
 ### Adding FAQ Content
 
-Add new FAQ data in `index.js`:
+Add new FAQ data in `src/index.js`:
 
 ```javascript
 const faqData = {
