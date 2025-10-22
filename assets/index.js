@@ -225,6 +225,12 @@
       faqModal.element.style.display = 'flex';
       faqModal.element.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+
+      // Add event listener to the dynamically created close button
+      const closeBtn = faqModal.content.querySelector('.faq-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', handleFAQClose);
+      }
     }
   }
 
@@ -290,7 +296,7 @@
         <div class="info-card__content">
           <h3 class="info-card__title">${data.title}</h3>
           <p class="info-card__description">${data.description}</p>
-          <button class="info-card__cta" onclick="document.getElementById('faq-modal').setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';">
+          <button class="info-card__cta faq-close-btn">
             <span>Close</span>
             <span class="info-card__cta-icon">×</span>
           </button>
