@@ -40,6 +40,7 @@
     initFAQModal();
     initSmoothScroll();
     initNavigation();
+    initMobileMenu();
     console.log('All modules initialized');
   }
 
@@ -362,6 +363,7 @@
             link.classList.remove('nav__link--active');
             if (link.getAttribute('href') === `#${sectionId}`) {
               link.classList.add('nav__link--active');
+              console.log('Active section:', sectionId, 'Added class to:', link.textContent);
             }
           });
         }
@@ -370,6 +372,38 @@
 
     window.addEventListener('scroll', highlightNavigation);
     highlightNavigation(); // Initial call
+  }
+
+  // ==========================================================================
+  // Mobile Menu Toggle
+  // ==========================================================================
+
+  function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navList = document.querySelector('.nav__list');
+
+    if (!mobileMenuToggle || !navList) return;
+
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = navList.classList.contains('nav__list--open');
+
+      if (isOpen) {
+        navList.classList.remove('nav__list--open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        navList.classList.add('nav__list--open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navList.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('nav__list--open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   // ==========================================================================

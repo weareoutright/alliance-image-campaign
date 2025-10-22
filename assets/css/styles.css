@@ -197,6 +197,19 @@ ul {
 @media (max-width: 768px) {
   .nav__list {
     display: none;
+    flex-direction: column;
+    gap: 0;
+    height: auto;
+    padding: 0;
+  }
+  .nav__list--open {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .nav__item {
+    width: 100%;
+    border-top: 1px solid rgba(15, 15, 15, 0.1);
   }
 }
 .nav__link {
@@ -224,6 +237,17 @@ ul {
 .nav__link:hover::after, .nav__link--active::after {
   transform: scaleX(1);
 }
+@media (max-width: 768px) {
+  .nav__link {
+    display: block;
+    width: 100%;
+    padding: 24px;
+    font-size: 18px;
+  }
+  .nav__link::after {
+    display: none;
+  }
+}
 .nav__mobile-menu {
   display: none;
 }
@@ -235,6 +259,9 @@ ul {
     height: 57px;
     padding: 0 24px;
     gap: 12px;
+    cursor: pointer;
+    background: none;
+    border: none;
   }
 }
 .nav__mobile-text {

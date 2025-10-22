@@ -261,11 +261,22 @@ ul {
 
     @include respond-to($breakpoint-mobile) {
       display: none;
+      flex-direction: column;
+      gap: 0;
+      height: auto;
+      padding: 0;
+
+      &--open {
+        display: flex;
+      }
     }
   }
 
   &__item {
-    // No additional styles needed
+    @include respond-to($breakpoint-mobile) {
+      width: 100%;
+      border-top: 1px solid rgba($color-off-black, 0.1);
+    }
   }
 
   &__link {
@@ -295,6 +306,17 @@ ul {
     &--active::after {
       transform: scaleX(1);
     }
+
+    @include respond-to($breakpoint-mobile) {
+      display: block;
+      width: 100%;
+      padding: $spacing-md;
+      font-size: 18px;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   &__mobile-menu {
@@ -307,6 +329,9 @@ ul {
       height: 57px;
       padding: 0 $spacing-md;
       gap: 12px;
+      cursor: pointer;
+      background: none;
+      border: none;
     }
   }
 
