@@ -247,6 +247,7 @@ ul {
   width: 100%;
 
   @include respond-to($breakpoint-mobile) {
+    position: relative;
     height: 57px;
   }
 
@@ -261,10 +262,16 @@ ul {
 
     @include respond-to($breakpoint-mobile) {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
       flex-direction: column;
       gap: 0;
       height: auto;
       padding: 0;
+      background-color: $color-white;
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
 
       &--open {
         display: flex;
