@@ -233,7 +233,6 @@ ul {
   letter-spacing: 1.2px;
   color: #0f0f0f;
   padding-bottom: 4px;
-  transition: color 0.3s ease;
 }
 .nav__link::after {
   content: "";
@@ -246,10 +245,7 @@ ul {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-.nav__link:hover {
-  color: #e5a369;
-}
-.nav__link--active::after {
+.nav__link:hover::after, .nav__link--active::after {
   transform: scaleX(1);
 }
 @media (max-width: 768px) {

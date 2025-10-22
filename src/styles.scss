@@ -307,7 +307,6 @@ ul {
     letter-spacing: 1.2px;
     color: $color-off-black;
     padding-bottom: 4px;
-    transition: color 0.3s ease;
 
     &::after {
       content: '';
@@ -321,10 +320,7 @@ ul {
       transition: transform 0.3s ease;
     }
 
-    &:hover {
-      color: $color-peach;
-    }
-
+    &:hover::after,
     &--active::after {
       transform: scaleX(1);
     }
