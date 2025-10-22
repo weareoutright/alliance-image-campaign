@@ -166,13 +166,13 @@ ul {
     border-radius: 0;
 
     &--left {
-      width: 717px;
-      height: 846px;
-      left: -191px;
-      top: 273px;
+      width: 400px;
+      height: auto;
+      left: 0;
+      bottom: 0;
 
       @include respond-to($breakpoint-mobile) {
-        width: 50%;
+        width: 45%;
         height: auto;
         left: -10%;
         bottom: 0;
@@ -182,13 +182,13 @@ ul {
     }
 
     &--right {
-      width: 717px;
-      height: 846px;
-      right: -191px;
-      top: 205px;
+      width: 400px;
+      height: auto;
+      right: -30px;
+      bottom: 0;
 
       @include respond-to($breakpoint-mobile) {
-        width: 50%;
+        width: 45%;
         height: auto;
         right: -10%;
         bottom: 0;

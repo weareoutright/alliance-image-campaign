@@ -107,14 +107,14 @@ ul {
   border-radius: 0;
 }
 .hero__image--left {
-  width: 717px;
-  height: 846px;
-  left: -191px;
-  top: 273px;
+  width: 400px;
+  height: auto;
+  left: 0;
+  bottom: 0;
 }
 @media (max-width: 768px) {
   .hero__image--left {
-    width: 50%;
+    width: 45%;
     height: auto;
     left: -10%;
     bottom: 0;
@@ -123,14 +123,14 @@ ul {
   }
 }
 .hero__image--right {
-  width: 717px;
-  height: 846px;
-  right: -191px;
-  top: 205px;
+  width: 400px;
+  height: auto;
+  right: -30px;
+  bottom: 0;
 }
 @media (max-width: 768px) {
   .hero__image--right {
-    width: 50%;
+    width: 45%;
     height: auto;
     right: -10%;
     bottom: 0;
