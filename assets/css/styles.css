@@ -132,7 +132,6 @@ ul {
   height: 644px;
   right: -102px;
   top: 205px;
-  transform: scaleY(-1);
 }
 @media (max-width: 768px) {
   .hero__image--right {
@@ -140,7 +139,7 @@ ul {
     height: auto;
     right: 0;
     top: 50%;
-    transform: translateY(-50%) scaleY(-1);
+    transform: translateY(-50%);
   }
 }
 .hero__content {

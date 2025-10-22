@@ -200,14 +200,13 @@ ul {
       height: 644px;
       right: -102px;
       top: 205px;
-      transform: scaleY(-1);
 
       @include respond-to($breakpoint-mobile) {
         width: 50%;
         height: auto;
         right: 0;
         top: 50%;
-        transform: translateY(-50%) scaleY(-1);
+        transform: translateY(-50%);
       }
     }
   }
