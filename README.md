@@ -80,7 +80,24 @@ alliance-image-campaign/
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### GitHub Pages Deployment
+
+This site is configured to automatically deploy to GitHub Pages when you push to the `main` branch.
+
+**Setup Instructions:**
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment" → "Source", select "GitHub Actions"
+3. Push to the `main` branch - the site will automatically build and deploy
+4. Your site will be available at: `https://[username].github.io/[repo-name]/`
+
+The GitHub Actions workflow (`.github/workflows/deploy.yml`) will:
+- Install dependencies
+- Compile SCSS to minified CSS
+- Deploy all files to GitHub Pages
+
+### Local Development
+
+#### Prerequisites
 
 You need a SCSS compiler. Options include:
 
