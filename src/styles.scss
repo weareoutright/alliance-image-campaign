@@ -26,7 +26,7 @@ $font-weight-bold: 700;
 
 // Breakpoints
 $breakpoint-mobile: 768px;
-$breakpoint-tablet: 1024px;
+$breakpoint-tablet: 1080px;
 $breakpoint-desktop: 1512px;
 
 // Spacing
@@ -256,7 +256,7 @@ ul {
     align-items: center;
     gap: 80px;
     height: 77px;
-    max-width: $breakpoint-desktop;
+    max-width: $breakpoint-tablet;
     margin: 0 auto;
 
     @include respond-to($breakpoint-mobile) {
@@ -370,7 +370,7 @@ ul {
 // ==========================================================================
 
 .about {
-  max-width: $breakpoint-desktop;
+  max-width: $breakpoint-tablet;
   margin: 0 auto;
   padding: $spacing-xxl $spacing-xl;
 
@@ -419,6 +419,11 @@ ul {
 
   &--reverse {
     flex-direction: row-reverse;
+
+    .info-card__image {
+      margin-right: auto;
+      margin-left: 0;
+    }
 
     @include respond-to($breakpoint-mobile) {
       flex-direction: column;
@@ -511,6 +516,9 @@ ul {
     flex: 1;
     max-width: 524px;
     display: flex;
+    margin-left: auto;
+    border-radius: $radius-md;
+    overflow: hidden;
 
     @include respond-to($breakpoint-mobile) {
       width: 100%;
@@ -614,7 +622,7 @@ ul {
   }
 
   &__header {
-    max-width: $breakpoint-desktop;
+    max-width: $breakpoint-tablet;
     margin: 0 auto;
     padding: 0 $spacing-xl;
     display: flex;
@@ -786,8 +794,6 @@ ul {
 // ==========================================================================
 
 .resources {
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
   padding: $spacing-xxl $spacing-xl;
   background: linear-gradient(
     to top,
@@ -800,6 +806,8 @@ ul {
   }
 
   &__container {
+    max-width: $breakpoint-tablet;
+    margin: 0 auto;
     background-color: $color-white;
     padding: $spacing-xxl;
     border-radius: $radius-xl;
