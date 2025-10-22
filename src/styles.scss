@@ -139,7 +139,7 @@ ul {
 
   &__color-overlay {
     @include absolute-fill;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     z-index: 2.5;
   }
