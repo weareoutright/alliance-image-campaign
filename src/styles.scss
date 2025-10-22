@@ -128,6 +128,18 @@ ul {
   &__background {
     @include absolute-fill;
     z-index: 1;
+
+    &::after {
+      content: '';
+      @include absolute-fill;
+      background-color: $color-plum;
+      opacity: 0;
+      z-index: 2.5;
+
+      @include respond-to($breakpoint-mobile) {
+        opacity: 0.85;
+      }
+    }
   }
 
   &__background-image {
@@ -161,10 +173,10 @@ ul {
       top: 273px;
 
       @include respond-to($breakpoint-mobile) {
-        width: 293px;
-        height: 346px;
-        left: -100px;
-        bottom: -84px;
+        width: 50%;
+        height: auto;
+        left: -10%;
+        bottom: 0;
         top: auto;
         transform: none;
       }
@@ -177,7 +189,12 @@ ul {
       top: 205px;
 
       @include respond-to($breakpoint-mobile) {
-        display: none;
+        width: 50%;
+        height: auto;
+        right: -10%;
+        bottom: 0;
+        top: auto;
+        transform: none;
       }
     }
   }

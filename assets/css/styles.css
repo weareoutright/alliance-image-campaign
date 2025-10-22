@@ -60,6 +60,22 @@ ul {
   height: 100%;
   z-index: 1;
 }
+.hero__background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5d113c;
+  opacity: 0;
+  z-index: 2.5;
+}
+@media (max-width: 768px) {
+  .hero__background::after {
+    opacity: 0.85;
+  }
+}
 .hero__background-image {
   position: absolute;
   top: 0;
@@ -99,10 +115,10 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__image--left {
-    width: 293px;
-    height: 346px;
-    left: -100px;
-    bottom: -84px;
+    width: 50%;
+    height: auto;
+    left: -10%;
+    bottom: 0;
     top: auto;
     transform: none;
   }
@@ -115,7 +131,12 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__image--right {
-    display: none;
+    width: 50%;
+    height: auto;
+    right: -10%;
+    bottom: 0;
+    top: auto;
+    transform: none;
   }
 }
 .hero__content {
