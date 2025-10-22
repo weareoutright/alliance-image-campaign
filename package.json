@@ -1,10 +1,20 @@
 {
   "name": "alliance-image-campaign",
   "version": "1.0.0",
-  "description": "",
+  "description": "Alliance for Care at Home - Landing Page Campaign",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:watch": "sass --watch styles.scss:styles.css",
+    "sass:build": "sass styles.scss:styles.css",
+    "sass:build:prod": "sass --style=compressed styles.scss:styles.css",
+    "serve": "npx http-server -p 8000 -o",
+    "dev": "npm run sass:watch & npm run serve"
   },
-  "private": true
+  "keywords": ["healthcare", "landing-page", "responsive", "scss", "bem"],
+  "author": "Alliance for Care at Home",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
 }
