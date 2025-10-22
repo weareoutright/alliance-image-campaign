@@ -307,6 +307,7 @@ ul {
     letter-spacing: 1.2px;
     color: $color-off-black;
     padding-bottom: 4px;
+    cursor: pointer;
 
     &::after {
       content: '';
