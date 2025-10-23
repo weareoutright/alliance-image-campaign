@@ -732,6 +732,7 @@ ul {
     border: 2px solid $color-off-black;
     color: $color-off-black;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       background-color: $color-peach;
@@ -867,14 +868,26 @@ ul {
 
     .testimonial-card--sage & {
       border-color: $color-sage;
+
+      svg {
+        color: $color-sage;
+      }
     }
 
     .testimonial-card--peach & {
       border-color: $color-peach;
+
+      svg {
+        color: $color-peach;
+      }
     }
 
     .testimonial-card--plum & {
       border-color: $color-plum;
+
+      svg {
+        color: $color-plum;
+      }
     }
 
     &:hover {
