@@ -621,7 +621,7 @@ ul {
   &::before {
     content: '';
     @include absolute-fill;
-    background-image: url('../images/quote-background.jpg');
+    background-image: url('../images/quote-background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
