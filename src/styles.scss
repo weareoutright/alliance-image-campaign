@@ -133,7 +133,7 @@ ul {
       @include absolute-fill;
       background-color: $color-plum;
       opacity: 0;
-      z-index: 2.5;
+      z-index: 3;
 
       @include respond-to($breakpoint-mobile) {
         opacity: 0.85;
@@ -152,7 +152,6 @@ ul {
     @include absolute-fill;
     object-fit: cover;
     object-position: center;
-    z-index: 2.5;
 
     @include respond-to($breakpoint-mobile) {
       display: none;
@@ -206,6 +205,8 @@ ul {
     height: 100%;
     text-align: center;
     padding: $spacing-md;
+    max-width: 550px;
+    margin: 0 auto;
   }
 
   &__logo {
@@ -974,17 +975,50 @@ ul {
     @include absolute-fill;
     z-index: 1;
 
-    &::before {
+    &::after {
       content: '';
       @include absolute-fill;
-      background: linear-gradient(to bottom, $color-white, rgba(255, 255, 255, 0));
-      z-index: 2;
+      background-color: $color-plum;
+      opacity: 0;
+      z-index: 3;
+
+      @include respond-to($breakpoint-mobile) {
+        opacity: 0.85;
+      }
     }
   }
 
   &__background-image {
     @include absolute-fill;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  &__shape-overlay {
+    @include absolute-fill;
+    object-fit: cover;
+    object-position: center;
+    z-index: 2;
+    mix-blend-mode: multiply;
+
+    @include respond-to($breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  &__people-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 4;
+
+    @include respond-to($breakpoint-mobile) {
+      right: -50px;
+    }
   }
 
   &__content {
@@ -1007,6 +1041,7 @@ ul {
   }
 
   &__description {
+    max-width: 400px;
     font-size: 18px;
     font-weight: $font-weight-medium;
     line-height: 30px;
@@ -1026,6 +1061,7 @@ ul {
     text-transform: uppercase;
     letter-spacing: 1.98px;
     color: $color-white;
+    text-decoration: none;
     transition: all 0.3s ease;
 
     &:hover {

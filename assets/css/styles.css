@@ -68,7 +68,7 @@ ul {
   height: 100%;
   background-color: #5d113c;
   opacity: 0;
-  z-index: 2.5;
+  z-index: 3;
 }
 @media (max-width: 768px) {
   .hero__background::after {
@@ -93,7 +93,6 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 2.5;
 }
 @media (max-width: 768px) {
   .hero__color-overlay {
@@ -148,6 +147,8 @@ ul {
   height: 100%;
   text-align: center;
   padding: 24px;
+  max-width: 550px;
+  margin: 0 auto;
 }
 .hero__logo {
   width: 267px;
@@ -847,15 +848,21 @@ ul {
   height: 100%;
   z-index: 1;
 }
-.contact__background::before {
+.contact__background::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
-  z-index: 2;
+  background-color: #5d113c;
+  opacity: 0;
+  z-index: 3;
+}
+@media (max-width: 768px) {
+  .contact__background::after {
+    opacity: 0.85;
+  }
 }
 .contact__background-image {
   position: absolute;
@@ -864,6 +871,38 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
+}
+.contact__shape-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+@media (max-width: 768px) {
+  .contact__shape-overlay {
+    display: none;
+  }
+}
+.contact__people-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: 4;
+}
+@media (max-width: 768px) {
+  .contact__people-image {
+    right: -50px;
+  }
 }
 .contact__content {
   position: relative;
@@ -884,6 +923,7 @@ ul {
   }
 }
 .contact__description {
+  max-width: 400px;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -902,6 +942,7 @@ ul {
   text-transform: uppercase;
   letter-spacing: 1.98px;
   color: #ffffff;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 .contact__button:hover {
