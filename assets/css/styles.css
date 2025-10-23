@@ -345,6 +345,13 @@ ul {
   border-radius: 24px;
   background-color: transparent;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.info-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 @media (max-width: 768px) {
   .info-card {

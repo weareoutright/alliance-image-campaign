@@ -41,6 +41,7 @@
     initSmoothScroll();
     initNavigation();
     initMobileMenu();
+    initScrollAnimations();
     console.log('All modules initialized');
   }
 
@@ -391,6 +392,35 @@
         navList.classList.remove('nav__list--open');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+  }
+
+  // ==========================================================================
+  // Scroll Animations
+  // ==========================================================================
+
+  function initScrollAnimations() {
+    const infoCards = document.querySelectorAll('.info-card');
+
+    if (!infoCards.length) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    infoCards.forEach(card => {
+      observer.observe(card);
     });
   }
 

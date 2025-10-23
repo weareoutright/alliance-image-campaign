@@ -417,6 +417,14 @@ ul {
   border-radius: $radius-md;
   background-color: transparent;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @include respond-to($breakpoint-mobile) {
     flex-direction: column;
