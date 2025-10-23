@@ -878,8 +878,6 @@ ul {
 
 .contact {
   position: relative;
-  max-width: 1512px;
-  margin: 0 auto;
   padding: 64px 48px;
   min-height: 914px;
   display: flex;
