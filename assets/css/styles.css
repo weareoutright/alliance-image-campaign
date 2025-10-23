@@ -856,6 +856,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+  margin-left: -24px;
 }
 @media (max-width: 768px) {
   .resources__list {

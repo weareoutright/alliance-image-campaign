@@ -986,6 +986,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $spacing-lg;
+    margin-left: -$spacing-md;// offset to match the padding on the items
 
     @include respond-to($breakpoint-mobile) {
       grid-template-columns: 1fr;
