@@ -752,14 +752,21 @@ ul {
     overflow: hidden;
   }
 
-  &__track {
-    display: flex;
-    gap: $spacing-lg;
-    padding-left: 217px; // Anchored to page width on left
-    transition: transform 0.5s ease-in-out;
+  &__container {
+    max-width: $breakpoint-tablet;
+    margin: 0 auto;
 
     @include respond-to($breakpoint-mobile) {
       padding-left: $spacing-md;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: $spacing-lg;
+    transition: transform 0.5s ease-in-out;
+
+    @include respond-to($breakpoint-mobile) {
       gap: $spacing-md;
     }
   }

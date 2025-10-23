@@ -646,15 +646,22 @@ ul {
   width: 100%;
   overflow: hidden;
 }
+.testimonials__container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .testimonials__container {
+    padding-left: 24px;
+  }
+}
 .testimonials__track {
   display: flex;
   gap: 32px;
-  padding-left: 217px;
   transition: transform 0.5s ease-in-out;
 }
 @media (max-width: 768px) {
   .testimonials__track {
-    padding-left: 24px;
     gap: 24px;
   }
 }
