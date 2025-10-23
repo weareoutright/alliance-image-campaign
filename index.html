@@ -26,6 +26,9 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero__background">
@@ -54,14 +57,14 @@
     </section>
 
     <!-- Navigation -->
-    <nav class="nav" id="navigation">
-        <ul class="nav__list">
-            <li class="nav__item"><a href="#about" class="nav__link">about</a></li>
-            <li class="nav__item"><a href="#testimonials" class="nav__link">testimonials</a></li>
-            <li class="nav__item"><a href="#resources" class="nav__link">resources</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link">contact</a></li>
+    <nav class="nav" id="navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav__list" id="nav-list" role="menubar">
+            <li class="nav__item" role="none"><a href="#about" class="nav__link" role="menuitem">about</a></li>
+            <li class="nav__item" role="none"><a href="#testimonials" class="nav__link" role="menuitem">testimonials</a></li>
+            <li class="nav__item" role="none"><a href="#resources" class="nav__link" role="menuitem">resources</a></li>
+            <li class="nav__item" role="none"><a href="#contact" class="nav__link" role="menuitem">contact</a></li>
         </ul>
-        <button class="nav__mobile-menu" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <button class="nav__mobile-menu" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-list">
             <span class="nav__mobile-text">menu</span>
             <div class="nav__mobile-icon">
                 <span></span>
@@ -71,310 +74,314 @@
         </button>
     </nav>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="about__title">Why work in care at home?</h2>
+    <main id="main-content">
+        <!-- About Section -->
+        <section class="about" id="about">
+            <h2 class="about__title">Why work in care at home?</h2>
 
-        <!-- Card 1: Dynamic & Fulfilling Work -->
-        <article class="info-card info-card--plum">
-            <div class="info-card__content">
-                <h3 class="info-card__title">Dynamic & Fulfilling Work</h3>
-                <p class="info-card__description">Deliver essential care in the setting where patients most want to receive it — at home. Apply your skills with greater autonomy and the chance to learn.</p>
-                <button class="info-card__cta" data-faq="dynamic-work" aria-expanded="false">
-                    <span>FAQs</span>
-                    <span class="info-card__cta-icon">+</span>
-                </button>
+            <!-- Card 1: Dynamic & Fulfilling Work -->
+            <article class="info-card info-card--plum">
+                <div class="info-card__content">
+                    <h3 class="info-card__title">Dynamic & Fulfilling Work</h3>
+                    <p class="info-card__description">Deliver essential care in the setting where patients most want to receive it — at home. Apply your skills with greater autonomy and the chance to learn.</p>
+                    <button class="info-card__cta" data-faq="dynamic-work" aria-expanded="false">
+                        <span>FAQs</span>
+                        <span class="info-card__cta-icon">+</span>
+                    </button>
+                </div>
+                <div class="info-card__image">
+                    <picture>
+                        <source srcset="assets/images/dynamic-work.webp" type="image/webp">
+                        <img src="assets/images/dynamic-work.jpg" alt="Healthcare professional providing care">
+                    </picture>
+                </div>
+            </article>
+
+            <!-- Card 2: Real Patient Impact -->
+            <article class="info-card info-card--sage info-card--reverse">
+                <div class="info-card__content">
+                    <h3 class="info-card__title">Real Patient Impact</h3>
+                    <p class="info-card__description">Develop meaningful relationships and stronger bonds with the people you serve, while witnessing firsthand the impact of your work over time.</p>
+                    <button class="info-card__cta" data-faq="patient-impact" aria-expanded="false">
+                        <span>FAQs</span>
+                        <span class="info-card__cta-icon">+</span>
+                    </button>
+                </div>
+                <div class="info-card__image">
+                    <picture>
+                        <source srcset="assets/images/patient-impact.webp" type="image/webp">
+                        <img src="assets/images/patient-impact.jpg" alt="Patient and caregiver interaction">
+                    </picture>
+                </div>
+            </article>
+
+            <!-- Card 3: Collaborative Care Culture -->
+            <article class="info-card info-card--peach" data-faq-content="collaborative-care">
+                <div class="info-card__content">
+                    <h3 class="info-card__title">Collaborative Care Culture</h3>
+                    <p class="info-card__description">Work with colleagues who share your passion and purpose, and lean on an integrated team of healthcare professionals who empower patient care.</p>
+                    <button class="info-card__cta" data-faq="collaborative-care" aria-expanded="false">
+                        <span>FAQs</span>
+                        <span class="info-card__cta-icon">+</span>
+                    </button>
+                </div>
+                <div class="info-card__image">
+                    <picture>
+                        <source srcset="assets/images/collaborative-care.webp" type="image/webp">
+                        <img src="assets/images/collaborative-care.jpg" alt="Team of healthcare professionals">
+                    </picture>
+                </div>
+            </article>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote">
+            <div class="container">
+                <div class="quote__mark">"</div>
+                <blockquote class="quote__text">Home care empowers people to live with agency to make choices based on their desires.</blockquote>
+                <cite class="quote__author">
+                    <span class="quote__author-name">Laura Ehrich</span>
+                    <span class="quote__author-title">Care at Home Advocate and Leader</span>
+                </cite>
             </div>
-            <div class="info-card__image">
-                <picture>
-                    <source srcset="assets/images/dynamic-work.webp" type="image/webp">
-                    <img src="assets/images/dynamic-work.jpg" alt="Healthcare professional providing care">
-                </picture>
-            </div>
-        </article>
 
-        <!-- Card 2: Real Patient Impact -->
-        <article class="info-card info-card--sage info-card--reverse">
-            <div class="info-card__content">
-                <h3 class="info-card__title">Real Patient Impact</h3>
-                <p class="info-card__description">Develop meaningful relationships and stronger bonds with the people you serve, while witnessing firsthand the impact of your work over time.</p>
-                <button class="info-card__cta" data-faq="patient-impact" aria-expanded="false">
-                    <span>FAQs</span>
-                    <span class="info-card__cta-icon">+</span>
-                </button>
-            </div>
-            <div class="info-card__image">
-                <picture>
-                    <source srcset="assets/images/patient-impact.webp" type="image/webp">
-                    <img src="assets/images/patient-impact.jpg" alt="Patient and caregiver interaction">
-                </picture>
-            </div>
-        </article>
+        </section>
 
-        <!-- Card 3: Collaborative Care Culture -->
-        <article class="info-card info-card--peach" data-faq-content="collaborative-care">
-            <div class="info-card__content">
-                <h3 class="info-card__title">Collaborative Care Culture</h3>
-                <p class="info-card__description">Work with colleagues who share your passion and purpose, and lean on an integrated team of healthcare professionals who empower patient care.</p>
-                <button class="info-card__cta" data-faq="collaborative-care" aria-expanded="false">
-                    <span>FAQs</span>
-                    <span class="info-card__cta-icon">+</span>
-                </button>
-            </div>
-            <div class="info-card__image">
-                <picture>
-                    <source srcset="assets/images/collaborative-care.webp" type="image/webp">
-                    <img src="assets/images/collaborative-care.jpg" alt="Team of healthcare professionals">
-                </picture>
-            </div>
-        </article>
-    </section>
-
-    <!-- Quote Section -->
-    <section class="quote">
-        <div class="container">
-            <div class="quote__mark">"</div>
-            <blockquote class="quote__text">Home care empowers people to live with agency to make choices based on their desires.</blockquote>
-            <cite class="quote__author">
-                <span class="quote__author-name">Laura Ehrich</span>
-                <span class="quote__author-title">Care at Home Advocate and Leader</span>
-            </cite>
-        </div>
-
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="testimonials__header">
-            <h2 class="testimonials__title">Hear why care at home matters</h2>
-            <div class="testimonials__controls">
-                <button class="testimonials__control testimonials__control--prev" aria-label="Previous testimonial">
-                    <svg width="16" height="32" viewBox="0 0 16 32" fill="none">
-                        <path d="M14 2L2 16L14 30" stroke="currentColor" stroke-width="3"/>
-                    </svg>
-                </button>
-                <button class="testimonials__control testimonials__control--next" aria-label="Next testimonial">
-                    <svg width="16" height="32" viewBox="0 0 16 32" fill="none">
-                        <path d="M2 2L14 16L2 30" stroke="currentColor" stroke-width="3"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="testimonials__carousel">
-            <div class="testimonials__container">
-                <div class="testimonials__track">
-                    <!-- Testimonial 1: Jessica Wise -->
-                    <article class="testimonial-card testimonial-card--sage">
-                        <picture>
-                            <source srcset="assets/images/jessica-wise.webp" type="image/webp">
-                            <img src="assets/images/jessica-wise.png" alt="Jessica Wise" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="jessica-wise">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">Jessica Wise</h3>
-                            <p class="testimonial-card__title">Registered Nurse and Clinical Leader</p>
-                        </div>
-                    </article>
-
-                    <!-- Testimonial 2: Tim Ingram -->
-                    <article class="testimonial-card testimonial-card--peach">
-                        <picture>
-                            <source srcset="assets/images/tim-ingram.webp" type="image/webp">
-                            <img src="assets/images/tim-ingram.png" alt="Tim Ingram" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="tim-ingram">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">Tim Ingram</h3>
-                            <p class="testimonial-card__title">Care at Home Advocate and Leader</p>
-                        </div>
-                    </article>
-
-                    <!-- Testimonial 3: India Harris-Jones -->
-                    <article class="testimonial-card testimonial-card--plum">
-                        <picture>
-                            <source srcset="assets/images/india-harris-jones.webp" type="image/webp">
-                            <img src="assets/images/india-harris-jones.png" alt="India Harris-Jones" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="india-harris-jones">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">India Harris-Jones</h3>
-                            <p class="testimonial-card__title">Care at Home Advocate and Caregiver</p>
-                        </div>
-                    </article>
-
-                    <!-- Additional testimonials (reusing first 3) -->
-                    <article class="testimonial-card testimonial-card--sage">
-                        <picture>
-                            <source srcset="assets/images/jessica-wise.webp" type="image/webp">
-                            <img src="assets/images/jessica-wise.png" alt="Jessica Wise" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="jessica-wise">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">Jessica Wise</h3>
-                            <p class="testimonial-card__title">Registered Nurse and Clinical Leader</p>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card testimonial-card--peach">
-                        <picture>
-                            <source srcset="assets/images/tim-ingram.webp" type="image/webp">
-                            <img src="assets/images/tim-ingram.png" alt="Tim Ingram" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="tim-ingram">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">Tim Ingram</h3>
-                            <p class="testimonial-card__title">Care at Home Advocate and Leader</p>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card testimonial-card--plum">
-                        <picture>
-                            <source srcset="assets/images/india-harris-jones.webp" type="image/webp">
-                            <img src="assets/images/india-harris-jones.png" alt="India Harris-Jones" class="testimonial-card__image">
-                        </picture>
-                        <button class="testimonial-card__play" data-video="india-harris-jones">
-                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
-                            </svg>
-                            <span>watch</span>
-                        </button>
-                        <div class="testimonial-card__info">
-                            <h3 class="testimonial-card__name">India Harris-Jones</h3>
-                            <p class="testimonial-card__title">Care at Home Advocate and Caregiver</p>
-                        </div>
-                    </article>
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="testimonials__header">
+                <h2 class="testimonials__title">Hear why care at home matters</h2>
+                <div class="testimonials__controls">
+                    <button class="testimonials__control testimonials__control--prev" aria-label="Previous testimonial">
+                        <svg width="16" height="32" viewBox="0 0 16 32" fill="none">
+                            <path d="M14 2L2 16L14 30" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </button>
+                    <button class="testimonials__control testimonials__control--next" aria-label="Next testimonial">
+                        <svg width="16" height="32" viewBox="0 0 16 32" fill="none">
+                            <path d="M2 2L14 16L2 30" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Resources Section -->
-    <section class="resources" id="resources">
-        <div class="resources__container">
-            <h2 class="resources__title">Explore more with these resources</h2>
+            <div class="testimonials__carousel">
+                <div class="testimonials__container">
+                    <div class="testimonials__track">
+                        <!-- Testimonial 1: Jessica Wise -->
+                        <article class="testimonial-card testimonial-card--sage">
+                            <picture>
+                                <source srcset="assets/images/jessica-wise.webp" type="image/webp">
+                                <img src="assets/images/jessica-wise.png" alt="Jessica Wise" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="jessica-wise">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">Jessica Wise</h3>
+                                <p class="testimonial-card__title">Registered Nurse and Clinical Leader</p>
+                            </div>
+                        </article>
 
-            <div class="resources__category">
-                <h3 class="resources__category-title">Category Name</h3>
-                <ul class="resources__list">
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                </ul>
+                        <!-- Testimonial 2: Tim Ingram -->
+                        <article class="testimonial-card testimonial-card--peach">
+                            <picture>
+                                <source srcset="assets/images/tim-ingram.webp" type="image/webp">
+                                <img src="assets/images/tim-ingram.png" alt="Tim Ingram" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="tim-ingram">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">Tim Ingram</h3>
+                                <p class="testimonial-card__title">Care at Home Advocate and Leader</p>
+                            </div>
+                        </article>
+
+                        <!-- Testimonial 3: India Harris-Jones -->
+                        <article class="testimonial-card testimonial-card--plum">
+                            <picture>
+                                <source srcset="assets/images/india-harris-jones.webp" type="image/webp">
+                                <img src="assets/images/india-harris-jones.png" alt="India Harris-Jones" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="india-harris-jones">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">India Harris-Jones</h3>
+                                <p class="testimonial-card__title">Care at Home Advocate and Caregiver</p>
+                            </div>
+                        </article>
+
+                        <!-- Additional testimonials (reusing first 3) -->
+                        <article class="testimonial-card testimonial-card--sage">
+                            <picture>
+                                <source srcset="assets/images/jessica-wise.webp" type="image/webp">
+                                <img src="assets/images/jessica-wise.png" alt="Jessica Wise" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="jessica-wise">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">Jessica Wise</h3>
+                                <p class="testimonial-card__title">Registered Nurse and Clinical Leader</p>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-card testimonial-card--peach">
+                            <picture>
+                                <source srcset="assets/images/tim-ingram.webp" type="image/webp">
+                                <img src="assets/images/tim-ingram.png" alt="Tim Ingram" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="tim-ingram">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">Tim Ingram</h3>
+                                <p class="testimonial-card__title">Care at Home Advocate and Leader</p>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-card testimonial-card--plum">
+                            <picture>
+                                <source srcset="assets/images/india-harris-jones.webp" type="image/webp">
+                                <img src="assets/images/india-harris-jones.png" alt="India Harris-Jones" class="testimonial-card__image">
+                            </picture>
+                            <button class="testimonial-card__play" data-video="india-harris-jones">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                    <path d="M0 0L16 10L0 20V0Z" fill="currentColor"/>
+                                </svg>
+                                <span>watch</span>
+                            </button>
+                            <div class="testimonial-card__info">
+                                <h3 class="testimonial-card__name">India Harris-Jones</h3>
+                                <p class="testimonial-card__title">Care at Home Advocate and Caregiver</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="resources__category">
-                <h3 class="resources__category-title">Category Name</h3>
-                <ul class="resources__list">
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                </ul>
+        <!-- Resources Section -->
+        <section class="resources" id="resources">
+            <div class="resources__container">
+                <h2 class="resources__title">Explore more with these resources</h2>
+
+                <div class="resources__category">
+                    <h3 class="resources__category-title">Category Name</h3>
+                    <ul class="resources__list">
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="resources__category">
+                    <h3 class="resources__category-title">Category Name</h3>
+                    <ul class="resources__list">
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="resources__category">
+                    <h3 class="resources__category-title">Category Name</h3>
+                    <ul class="resources__list">
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                        <li class="resources__item">
+                            <a href="#" class="resources__link">
+                                <span class="resources__link-title">Resource link destination</span>
+                                <span class="resources__link-description">Brief description of resource or organization</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-            <div class="resources__category">
-                <h3 class="resources__category-title">Category Name</h3>
-                <ul class="resources__list">
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                    <li class="resources__item">
-                        <a href="#" class="resources__link">
-                            <span class="resources__link-title">Resource link destination</span>
-                            <span class="resources__link-description">Brief description of resource or organization</span>
-                        </a>
-                    </li>
-                </ul>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="contact__background">
+                <picture>
+                    <source srcset="assets/images/contact-background.webp" type="image/webp">
+                    <img src="assets/images/contact-background.jpg" alt="" class="contact__background-image">
+                </picture>
+                <picture>
+                    <source srcset="assets/images/contact-background-shape.webp" type="image/webp">
+                    <img src="assets/images/contact-background-shape.png" alt="" class="contact__shape-overlay">
+                </picture>
+                <picture>
+                    <source srcset="assets/images/contact-people.webp" type="image/webp">
+                    <img src="assets/images/contact-people.png" alt="" class="contact__people-image">
+                </picture>
             </div>
-        </div>
-    </section>
+            <div class="contact__content">
+                <h2 class="contact__title">Get in touch</h2>
+                <p class="contact__description">Whether you have questions about care at home or are ready to make a career change, <strong>we'd love to hear from you.</strong></p>
+                <a href="mailto:info@allianceforhomecare.org" class="contact__button">email us</a>
+            </div>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact__background">
-            <picture>
-                <source srcset="assets/images/contact-background.webp" type="image/webp">
-                <img src="assets/images/contact-background.jpg" alt="" class="contact__background-image">
-            </picture>
-            <picture>
-                <source srcset="assets/images/contact-background-shape.webp" type="image/webp">
-                <img src="assets/images/contact-background-shape.png" alt="" class="contact__shape-overlay">
-            </picture>
-            <picture>
-                <source srcset="assets/images/contact-people.webp" type="image/webp">
-                <img src="assets/images/contact-people.png" alt="" class="contact__people-image">
-            </picture>
-        </div>
-        <div class="contact__content">
-            <h2 class="contact__title">Get in touch</h2>
-            <p class="contact__description">Whether you have questions about care at home or are ready to make a career change, <strong>we'd love to hear from you.</strong></p>
-            <a href="mailto:info@allianceforhomecare.org" class="contact__button">email us</a>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">

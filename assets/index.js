@@ -367,6 +367,31 @@
       });
     }
 
+    // Keyboard navigation for nav links
+    navLinks.forEach((link, index) => {
+      link.addEventListener('keydown', (e) => {
+        let newIndex = index;
+
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          newIndex = (index + 1) % navLinks.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          newIndex = (index - 1 + navLinks.length) % navLinks.length;
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          newIndex = 0;
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          newIndex = navLinks.length - 1;
+        } else {
+          return;
+        }
+
+        navLinks[newIndex].focus();
+      });
+    });
+
     window.addEventListener('scroll', highlightNavigation);
     highlightNavigation(); // Initial call
   }

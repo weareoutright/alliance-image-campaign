@@ -88,6 +88,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Skip to Content Link
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: $color-plum;
+  color: $color-white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: $font-weight-demi;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 $radius-sm 0;
+  transition: top 0.3s ease;
+
+  &:focus {
+    top: 0;
+    outline: 3px solid $color-peach;
+    outline-offset: 2px;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -104,6 +126,21 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+
+  &:focus-visible {
+    outline: 3px solid $color-peach;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid $color-peach;
+    outline-offset: 2px;
+  }
 }
 
 ul {
