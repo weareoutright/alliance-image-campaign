@@ -732,12 +732,12 @@ ul {
     border: 2px solid $color-off-black;
     color: $color-off-black;
     transition: all 0.3s ease;
-    cursor: pointer;
 
     &:hover {
       background-color: $color-peach;
       border-color: $color-peach;
       color: $color-white;
+      cursor: pointer;
     }
 
     &:disabled {

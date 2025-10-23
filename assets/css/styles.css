@@ -630,12 +630,12 @@ ul {
   border: 2px solid #0f0f0f;
   color: #0f0f0f;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 .testimonials__control:hover {
   background-color: #e5a369;
   border-color: #e5a369;
   color: #ffffff;
+  cursor: pointer;
 }
 .testimonials__control:disabled {
   opacity: 0.3;
