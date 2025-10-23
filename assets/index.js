@@ -5,8 +5,6 @@
 (function() {
   'use strict';
 
-  console.log('Alliance Image Campaign - JavaScript loaded');
-
   // State
   let currentSlide = 0;
   const totalSlides = 6;
@@ -34,7 +32,6 @@
 
   // Initialize
   function init() {
-    console.log('Initializing all modules...');
     initCarousel();
     initVideoModal();
     initFAQModal();
@@ -42,7 +39,6 @@
     initNavigation();
     initMobileMenu();
     initScrollAnimations();
-    console.log('All modules initialized');
   }
 
   // ==========================================================================
@@ -60,7 +56,51 @@
     carousel.prevBtn.addEventListener('click', handlePrevSlide);
     carousel.nextBtn.addEventListener('click', handleNextSlide);
 
+    // Add touch/swipe functionality
+    initCarouselSwipe();
+
     updateCarouselButtons();
+  }
+
+  function initCarouselSwipe() {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+
+    carousel.track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isDragging = true;
+    }, { passive: true });
+
+    carousel.track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      touchEndX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.track.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50; // Minimum swipe distance in pixels
+      const swipeDistance = touchStartX - touchEndX;
+
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+          // Swiped left - go to next slide
+          handleNextSlide();
+        } else {
+          // Swiped right - go to previous slide
+          handlePrevSlide();
+        }
+      }
+
+      // Reset values
+      touchStartX = 0;
+      touchEndX = 0;
+    }
   }
 
   function handlePrevSlide() {
@@ -104,24 +144,12 @@
     videoModal.closeBtn = videoModal.element?.querySelector('.modal__close');
     videoModal.video = videoModal.element?.querySelector('.modal__video');
 
-    console.log('Video modal initialized:', {
-      element: !!videoModal.element,
-      overlay: !!videoModal.overlay,
-      closeBtn: !!videoModal.closeBtn,
-      video: !!videoModal.video
-    });
-
-    if (!videoModal.element) {
-      console.error('Video modal element not found');
-      return;
-    }
+    if (!videoModal.element) return;
 
     // Add click handlers to all play buttons
     const playButtons = document.querySelectorAll('[data-video]');
-    console.log('Found', playButtons.length, 'play buttons');
 
-    playButtons.forEach((button, index) => {
-      console.log(`Attaching handler to button ${index + 1}:`, button.getAttribute('data-video'));
+    playButtons.forEach((button) => {
       button.addEventListener('click', handleVideoOpen);
     });
 
@@ -138,40 +166,21 @@
   }
 
   function handleVideoOpen(e) {
-    console.log('!!! HANDLE VIDEO OPEN CALLED !!!');
     e.preventDefault();
     e.stopPropagation();
 
     const videoId = e.currentTarget.getAttribute('data-video');
     const videoSrc = `assets/videos/${videoId}.mp4`;
 
-    console.log('handleVideoOpen called for:', videoId);
-    console.log('videoModal.element:', videoModal.element);
-    console.log('videoModal.video:', videoModal.video);
-
-    // Re-query the modal in case it wasn't found during init
-    const modalElement = document.getElementById('video-modal');
-    const videoElement = modalElement?.querySelector('.modal__video');
-
-    console.log('Re-queried modalElement:', modalElement);
-    console.log('Current display style:', modalElement?.style.display);
-
-    if (videoElement && modalElement) {
-      videoElement.src = videoSrc;
-      modalElement.style.display = 'flex';
-      modalElement.setAttribute('aria-hidden', 'false');
+    if (videoModal.video && videoModal.element) {
+      videoModal.video.src = videoSrc;
+      videoModal.element.style.display = 'flex';
+      videoModal.element.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      console.log('Modal should now be visible. New display style:', modalElement.style.display);
-
       // Only play if video source exists (won't error if video file missing)
-      videoElement.play().catch(err => {
-        console.log('Video playback failed (expected if no video file):', err.message);
-      });
-    } else {
-      console.error('Video modal elements not found:', {
-        videoElement: !!videoElement,
-        modalElement: !!modalElement
+      videoModal.video.play().catch(() => {
+        // Video playback failed (expected if no video file)
       });
     }
   }
@@ -352,7 +361,6 @@
             link.classList.remove('nav__link--active');
             if (link.getAttribute('href') === `#${sectionId}`) {
               link.classList.add('nav__link--active');
-              console.log('Active section:', sectionId, 'Added class to:', link.textContent);
             }
           });
         }
@@ -401,8 +409,8 @@
 
   function initScrollAnimations() {
     const infoCards = document.querySelectorAll('.info-card');
-
-    if (!infoCards.length) return;
+    const testimonialCarousel = document.querySelector('.testimonials__carousel');
+    const testimonialsSection = document.querySelector('.testimonials');
 
     const observerOptions = {
       root: null,
@@ -414,14 +422,26 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
+
+          // Also add animate-carousel class to testimonials section for button pulse
+          if (entry.target.classList.contains('testimonials__carousel')) {
+            testimonialsSection?.classList.add('animate-carousel');
+          }
+
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
+    // Observe info cards
     infoCards.forEach(card => {
       observer.observe(card);
     });
+
+    // Observe testimonials carousel
+    if (testimonialCarousel) {
+      observer.observe(testimonialCarousel);
+    }
   }
 
   // ==========================================================================

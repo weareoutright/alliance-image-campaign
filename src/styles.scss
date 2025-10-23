@@ -694,7 +694,6 @@ ul {
   &__header {
     max-width: $breakpoint-tablet;
     margin: 0 auto;
-    padding: 0 $spacing-xl;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -744,17 +743,61 @@ ul {
       opacity: 0.3;
       cursor: not-allowed;
     }
+
+    &--next {
+      .testimonials.animate-carousel & {
+        animation: pulse-next .5s ease-in-out 1s 2;
+      }
+    }
+  }
+
+  @keyframes pulse-next {
+    0%, 100% {
+      background-color: $color-white;
+      border-color: $color-off-black;
+      color: $color-off-black;
+      transform: scale(1);
+    }
+    50% {
+      background-color: $color-peach;
+      border-color: $color-peach;
+      color: $color-white;
+      transform: scale(1.05);
+    }
   }
 
   &__carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: calc((100vw - min(100vw, $breakpoint-tablet)) / 2);
+      background-color: $color-white;
+      z-index: 5;
+
+      @include respond-to($breakpoint-tablet) {
+        width: 0;
+      }
+    }
   }
 
   &__container {
     max-width: $breakpoint-tablet;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease, transform 1s ease;
+
+    .testimonials__carousel.animate-in & {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
     @include respond-to($breakpoint-mobile) {
       padding-left: $spacing-md;
