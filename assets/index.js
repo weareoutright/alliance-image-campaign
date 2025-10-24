@@ -320,6 +320,7 @@
 
   function initSmoothScroll() {
     const navLinks = document.querySelectorAll('.nav__link');
+    let lastActivatedSection = null;
 
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
@@ -335,6 +336,30 @@
             top: targetPosition,
             behavior: 'smooth'
           });
+
+          // Store the last activated section for tab navigation
+          lastActivatedSection = targetSection;
+        }
+      });
+
+      // Handle tab navigation after clicking a nav link
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && !e.shiftKey && lastActivatedSection) {
+          const targetId = link.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+
+          if (targetSection === lastActivatedSection) {
+            // Find first focusable element in the section
+            const focusableElements = targetSection.querySelectorAll(
+              'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+
+            if (focusableElements.length > 0) {
+              e.preventDefault();
+              focusableElements[0].focus();
+              lastActivatedSection = null; // Reset after use
+            }
+          }
         }
       });
     });
