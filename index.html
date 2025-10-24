@@ -95,6 +95,21 @@
                         <img src="assets/images/dynamic-work.jpg" alt="Healthcare professional providing care">
                     </picture>
                 </div>
+                <!-- FAQ Content (Hidden in DOM for accessibility/SEO) -->
+                <div class="faq-content__section" data-faq-type="dynamic-work" style="display: none;">
+                    <h3 class="faq-content__title">Dynamic & Fulfilling Work</h3>
+                    <p class="faq-content__description">Deliver essential care in the setting where patients most want to receive it — at home. Apply your skills with greater autonomy and the chance to learn.</p>
+                    <div class="faq-content__items">
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">What types of care can I provide at home?</h4>
+                            <p class="faq-content__answer">Home care encompasses a wide range of services including skilled nursing, physical therapy, occupational therapy, speech therapy, medical social services, and personal care assistance.</p>
+                        </div>
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">How is home care different from hospital care?</h4>
+                            <p class="faq-content__answer">Home care allows for more personalized, one-on-one patient interaction in a familiar environment, often leading to better patient outcomes and satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
             </article>
 
             <!-- Card 2: Real Patient Impact -->
@@ -113,10 +128,25 @@
                         <img src="assets/images/patient-impact.jpg" alt="Patient and caregiver interaction">
                     </picture>
                 </div>
+                <!-- FAQ Content (Hidden in DOM for accessibility/SEO) -->
+                <div class="faq-content__section" data-faq-type="patient-impact" style="display: none;">
+                    <h3 class="faq-content__title">Real Patient Impact</h3>
+                    <p class="faq-content__description">Develop meaningful relationships and stronger bonds with the people you serve, while witnessing firsthand the impact of your work over time.</p>
+                    <div class="faq-content__items">
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">How do I build relationships with patients?</h4>
+                            <p class="faq-content__answer">Through consistent visits and personalized care plans, you develop deep understanding of patient needs and preferences, creating lasting bonds.</p>
+                        </div>
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">What outcomes can I expect to see?</h4>
+                            <p class="faq-content__answer">You will witness tangible improvements in patient health, independence, and quality of life as you provide ongoing support in their home environment.</p>
+                        </div>
+                    </div>
+                </div>
             </article>
 
             <!-- Card 3: Collaborative Care Culture -->
-            <article class="info-card info-card--peach" data-faq-content="collaborative-care">
+            <article class="info-card info-card--peach">
                 <div class="info-card__content">
                     <h3 class="info-card__title">Collaborative Care Culture</h3>
                     <p class="info-card__description">Work with colleagues who share your passion and purpose, and lean on an integrated team of healthcare professionals who empower patient care.</p>
@@ -130,6 +160,21 @@
                         <source srcset="assets/images/collaborative-care.webp" type="image/webp">
                         <img src="assets/images/collaborative-care.jpg" alt="Team of healthcare professionals">
                     </picture>
+                </div>
+                <!-- FAQ Content (Hidden in DOM for accessibility/SEO) -->
+                <div class="faq-content__section" data-faq-type="collaborative-care" style="display: none;">
+                    <h3 class="faq-content__title">Collaborative Care Culture</h3>
+                    <p class="faq-content__description">Work with colleagues who share your passion and purpose, and lean on an integrated team of healthcare professionals who empower patient care.</p>
+                    <div class="faq-content__items">
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">Who will I work with?</h4>
+                            <p class="faq-content__answer">You will collaborate with physicians, nurses, therapists, social workers, and other healthcare professionals as part of an integrated care team.</p>
+                        </div>
+                        <div class="faq-content__item">
+                            <h4 class="faq-content__question">How does team collaboration work?</h4>
+                            <p class="faq-content__answer">Regular communication, care coordination meetings, and shared care plans ensure everyone is aligned on patient goals and treatment approaches.</p>
+                        </div>
+                    </div>
                 </div>
             </article>
         </section>
@@ -410,8 +455,15 @@
     <!-- FAQ Modal Overlay -->
     <div class="faq-modal" id="faq-modal" aria-hidden="true" style="display: none;">
         <div class="faq-modal__overlay"></div>
-        <div class="faq-modal__content">
-            <!-- FAQ content will be populated dynamically -->
+        <div class="faq-modal__container">
+            <button class="faq-modal__close" aria-label="Close FAQ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="faq-modal__content">
+                <!-- FAQ content will be populated dynamically -->
+            </div>
         </div>
     </div>
 

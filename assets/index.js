@@ -203,115 +203,94 @@
   // ==========================================================================
 
   function initFAQModal() {
+    faqModal.element = document.getElementById('faq-modal');
+    faqModal.overlay = faqModal.element?.querySelector('.faq-modal__overlay');
+    faqModal.content = faqModal.element?.querySelector('.faq-modal__content');
+    const faqCloseBtn = faqModal.element?.querySelector('.faq-modal__close');
+
+    if (!faqModal.element) return;
+
     // Add click handlers to all FAQ buttons
     const faqButtons = document.querySelectorAll('[data-faq]');
     faqButtons.forEach(button => {
-      button.addEventListener('click', handleFAQToggle);
+      button.addEventListener('click', handleFAQOpen);
+    });
+
+    // Close modal handlers
+    faqModal.overlay?.addEventListener('click', handleFAQClose);
+    faqCloseBtn?.addEventListener('click', handleFAQClose);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && faqModal.element.getAttribute('aria-hidden') === 'false') {
+        handleFAQClose();
+      }
     });
   }
 
-  function handleFAQToggle(e) {
+  function handleFAQOpen(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
     const button = e.currentTarget;
     const faqType = button.getAttribute('data-faq');
-    const card = button.closest('.info-card');
+    const faqContent = getFAQContent(faqType);
 
-    if (!card) return;
-
-    // Check if FAQ is already open
-    const existingFAQ = card.querySelector('.info-card__faq');
-
-    if (existingFAQ && existingFAQ.classList.contains('info-card__faq--open')) {
-      // Close the FAQ
-      existingFAQ.classList.remove('info-card__faq--open');
-      button.setAttribute('aria-expanded', 'false');
-      button.querySelector('.info-card__cta-icon').textContent = '+';
-    } else if (existingFAQ) {
-      // FAQ exists but is closed, open it
-      existingFAQ.classList.add('info-card__faq--open');
+    if (faqModal.content && faqModal.element) {
+      faqModal.content.innerHTML = faqContent;
+      faqModal.element.style.display = 'flex';
+      faqModal.element.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
       button.setAttribute('aria-expanded', 'true');
-      button.querySelector('.info-card__cta-icon').textContent = '−';
-    } else {
-      // Create and open the FAQ
-      const faqContent = getFAQContent(faqType);
-      const faqElement = document.createElement('div');
-      faqElement.className = 'info-card__faq';
-      faqElement.innerHTML = faqContent;
-
-      // Insert after the content div
-      const contentDiv = card.querySelector('.info-card__content');
-      contentDiv.appendChild(faqElement);
-
-      // Trigger animation by adding class after a small delay
-      setTimeout(() => {
-        faqElement.classList.add('info-card__faq--open');
-      }, 10);
-
-      button.setAttribute('aria-expanded', 'true');
-      button.querySelector('.info-card__cta-icon').textContent = '−';
     }
   }
 
-  function getFAQContent(type) {
-    const faqData = {
-      'dynamic-work': {
-        title: 'Dynamic & Fulfilling Work',
-        description: 'Deliver essential care in the setting where patients most want to receive it — at home. Apply your skills with greater autonomy and the chance to learn.',
-        faqs: [
-          {
-            question: 'What types of care can I provide at home?',
-            answer: 'Home care encompasses a wide range of services including skilled nursing, physical therapy, occupational therapy, speech therapy, medical social services, and personal care assistance.'
-          },
-          {
-            question: 'How is home care different from hospital care?',
-            answer: 'Home care allows for more personalized, one-on-one patient interaction in a familiar environment, often leading to better patient outcomes and satisfaction.'
-          }
-        ]
-      },
-      'patient-impact': {
-        title: 'Real Patient Impact',
-        description: 'Develop meaningful relationships and stronger bonds with the people you serve, while witnessing firsthand the impact of your work over time.',
-        faqs: [
-          {
-            question: 'How do I build relationships with patients?',
-            answer: 'Through consistent visits and personalized care plans, you develop deep understanding of patient needs and preferences, creating lasting bonds.'
-          },
-          {
-            question: 'What outcomes can I expect to see?',
-            answer: 'You will witness tangible improvements in patient health, independence, and quality of life as you provide ongoing support in their home environment.'
-          }
-        ]
-      },
-      'collaborative-care': {
-        title: 'Collaborative Care Culture',
-        description: 'Work with colleagues who share your passion and purpose, and lean on an integrated team of healthcare professionals who empower patient care.',
-        faqs: [
-          {
-            question: 'Who will I work with?',
-            answer: 'You will collaborate with physicians, nurses, therapists, social workers, and other healthcare professionals as part of an integrated care team.'
-          },
-          {
-            question: 'How does team collaboration work?',
-            answer: 'Regular communication, care coordination meetings, and shared care plans ensure everyone is aligned on patient goals and treatment approaches.'
-          }
-        ]
-      }
-    };
+  function handleFAQClose() {
+    if (faqModal.element) {
+      faqModal.element.style.display = 'none';
+      faqModal.element.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
 
-    const data = faqData[type];
-    if (!data) return '<p>FAQ content not found.</p>';
-
-    let html = '';
-
-    data.faqs.forEach(faq => {
-      html += `
-        <div class="info-card__faq-item">
-          <h4 class="info-card__faq-question">${faq.question}</h4>
-          <p class="info-card__faq-answer">${faq.answer}</p>
-        </div>
-      `;
+    // Reset aria-expanded on all FAQ buttons
+    const faqButtons = document.querySelectorAll('[data-faq]');
+    faqButtons.forEach(button => {
+      button.setAttribute('aria-expanded', 'false');
     });
+  }
 
-    return html;
+  function getFAQContent(type) {
+    // Find the FAQ section in the DOM
+    const faqSection = document.querySelector(`.faq-content__section[data-faq-type="${type}"]`);
+
+    if (!faqSection) {
+      return '<p>FAQ content not found.</p>';
+    }
+
+    // Clone the section content to avoid modifying the original
+    const clonedSection = faqSection.cloneNode(true);
+
+    // Update class names for modal styling
+    const title = clonedSection.querySelector('.faq-content__title');
+    if (title) title.className = 'faq-modal__title';
+
+    const description = clonedSection.querySelector('.faq-content__description');
+    if (description) description.className = 'faq-modal__description';
+
+    const items = clonedSection.querySelector('.faq-content__items');
+    if (items) items.className = 'faq-modal__items';
+
+    const itemElements = clonedSection.querySelectorAll('.faq-content__item');
+    itemElements.forEach(item => item.className = 'faq-modal__item');
+
+    const questions = clonedSection.querySelectorAll('.faq-content__question');
+    questions.forEach(question => question.className = 'faq-modal__question');
+
+    const answers = clonedSection.querySelectorAll('.faq-content__answer');
+    answers.forEach(answer => answer.className = 'faq-modal__answer');
+
+    // Return the HTML content
+    return clonedSection.innerHTML;
   }
 
   // ==========================================================================

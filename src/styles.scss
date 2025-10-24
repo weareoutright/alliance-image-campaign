@@ -599,46 +599,6 @@ ul {
       }
     }
   }
-
-  &__faq {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 1px solid rgba($color-off-black, 0.1);
-
-    &--open {
-      max-height: 2000px;
-      opacity: 1;
-      margin-top: $spacing-lg;
-      padding-top: $spacing-lg;
-    }
-  }
-
-  &__faq-item {
-    margin-bottom: $spacing-lg;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__faq-question {
-    font-size: 18px;
-    font-weight: $font-weight-demi;
-    line-height: 28px;
-    margin-bottom: $spacing-sm;
-    color: $color-off-black;
-  }
-
-  &__faq-answer {
-    font-size: 16px;
-    font-weight: $font-weight-book;
-    line-height: 26px;
-    color: rgba($color-off-black, 0.8);
-  }
 }
 
 // Quote Section
@@ -1243,7 +1203,7 @@ ul {
 
   &__overlay {
     @include absolute-fill;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     z-index: 1;
   }
@@ -1301,23 +1261,131 @@ ul {
 
   &__overlay {
     @include absolute-fill;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
+    z-index: 1;
   }
 
-  &__content {
+  &__container {
     position: relative;
     z-index: 10;
     max-width: 90vw;
     width: 1080px;
+  }
+
+  &__close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    color: $color-white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include respond-to($breakpoint-mobile) {
+      top: 0;
+      right: 0;
+      background-color: rgba($color-white, 0.9);
+      color: $color-off-black;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__content {
+    position: relative;
     max-height: 90vh;
     overflow-y: auto;
     background-color: $color-white;
     border-radius: $radius-md;
-    padding: $spacing-xl;
+    padding: $spacing-xxl;
 
     @include respond-to($breakpoint-mobile) {
-      padding: $spacing-md;
+      padding: $spacing-lg;
+      padding-top: $spacing-xl;
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: $font-weight-demi;
+    line-height: 50px;
+    letter-spacing: 0.4px;
+    margin-bottom: $spacing-lg;
+    color: $color-off-black;
+
+    @include respond-to($breakpoint-mobile) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: 32px;
+    letter-spacing: 0.4px;
+    margin-bottom: $spacing-xl;
+    color: rgba($color-off-black, 0.9);
+
+    @include respond-to($breakpoint-mobile) {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__item {
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid rgba($color-off-black, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__question {
+    font-size: 20px;
+    font-weight: $font-weight-demi;
+    line-height: 30px;
+    margin-bottom: $spacing-sm;
+    color: $color-off-black;
+
+    @include respond-to($breakpoint-mobile) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &__answer {
+    font-size: 18px;
+    font-weight: $font-weight-book;
+    line-height: 28px;
+    color: rgba($color-off-black, 0.8);
+
+    @include respond-to($breakpoint-mobile) {
+      font-size: 16px;
+      line-height: 26px;
     }
   }
 }
