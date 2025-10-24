@@ -88,7 +88,7 @@ This site is configured to automatically deploy to GitHub Pages when you push to
 1. Go to your repository Settings → Pages
 2. Under "Build and deployment" → "Source", select "GitHub Actions"
 3. Push to the `main` branch - the site will automatically build and deploy
-4. Your site will be available at: `https://[username].github.io/[repo-name]/`
+4. Your site will be available at: `https://weareoutright.github.io/alliance-image-campaign/`
 
 The GitHub Actions workflow (`.github/workflows/deploy.yml`) will:
 - Install dependencies
