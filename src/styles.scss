@@ -595,7 +595,7 @@ ul {
       object-fit: cover;
 
       @include respond-to($breakpoint-mobile) {
-        height: 300px;
+        height: auto;
       }
     }
   }

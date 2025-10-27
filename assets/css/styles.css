@@ -507,7 +507,7 @@ ul {
 }
 @media (max-width: 768px) {
   .info-card__image img {
-    height: 300px;
+    height: auto;
   }
 }
 
