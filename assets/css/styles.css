@@ -1192,7 +1192,7 @@ ul {
   font-weight: 600;
   line-height: 50px;
   letter-spacing: 0.4px;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
   color: #0f0f0f;
 }
 @media (max-width: 768px) {
