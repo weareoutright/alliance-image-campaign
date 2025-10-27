@@ -1286,14 +1286,15 @@ ul {
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
+    z-index: 10;
 
     &:hover {
       transform: scale(1.1);
     }
 
     @include respond-to($breakpoint-mobile) {
-      top: 0;
-      right: 0;
+      top: 16px;
+      right: 16px;
       background-color: rgba($color-white, 0.9);
       color: $color-off-black;
       border-radius: 50%;
