@@ -824,28 +824,40 @@ ul {
   height: 488px;
   border-radius: $radius-lg;
   overflow: hidden;
-  background-color: $color-sage;
+  background-color: $color-white;
 
   @include respond-to($breakpoint-mobile) {
     flex: 0 0 300px;
     height: 400px;
   }
 
-  &--sage {
+  &::after {
+    content: '';
+    @include absolute-fill;
+    background-color: $color-sage;
+    border-radius: calc($radius-lg + 10px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &--sage::after {
     background-color: $color-sage;
   }
 
-  &--peach {
+  &--peach::after {
     background-color: $color-peach;
   }
 
-  &--plum {
+  &--plum::after {
     background-color: $color-plum;
   }
 
   &__image {
     @include absolute-fill;
     object-fit: cover;
+    z-index: 1;
+    border-radius: calc($radius-lg + 10px);
+    overflow: hidden;
   }
 
   &__play {
@@ -910,6 +922,7 @@ ul {
     padding: 25px 32px;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
+    z-index: 2;
   }
 
   &__name {
@@ -922,7 +935,7 @@ ul {
   &__title {
     font-size: 18px;
     font-weight: $font-weight-book;
-    line-height: 30px;
+    line-height: 22px;
   }
 }
 
