@@ -269,9 +269,14 @@ ul {
     margin-bottom: $spacing-lg;
     max-width: 741px;
 
+    @media (max-width: 1088px) and (min-width: 769px) {
+      font-size: 48px;
+      line-height: 52px;
+    }
+
     @include respond-to($breakpoint-mobile) {
       font-size: 50px;
-      line-height: 42px;
+      line-height: 58px;
       max-width: 333px;
     }
   }
@@ -283,6 +288,12 @@ ul {
     color: $color-white;
     max-width: 575px;
     letter-spacing: 0.64px;
+
+    @media (max-width: 1088px) and (min-width: 769px) {
+      font-size: 22px;
+      line-height: 30px;
+      max-width: 280px;
+    }
 
     @include respond-to($breakpoint-mobile) {
       font-size: 32px;

@@ -205,10 +205,16 @@ ul {
   margin-bottom: 32px;
   max-width: 741px;
 }
+@media (max-width: 1088px) and (min-width: 769px) {
+  .hero__title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
 @media (max-width: 768px) {
   .hero__title {
     font-size: 50px;
-    line-height: 42px;
+    line-height: 58px;
     max-width: 333px;
   }
 }
@@ -219,6 +225,13 @@ ul {
   color: #ffffff;
   max-width: 575px;
   letter-spacing: 0.64px;
+}
+@media (max-width: 1088px) and (min-width: 769px) {
+  .hero__subtitle {
+    font-size: 22px;
+    line-height: 30px;
+    max-width: 280px;
+  }
 }
 @media (max-width: 768px) {
   .hero__subtitle {
