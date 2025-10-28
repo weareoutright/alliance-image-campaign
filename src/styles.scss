@@ -962,7 +962,7 @@ ul {
     border-radius: $radius-xl;
 
     @include respond-to($breakpoint-mobile) {
-      padding: $spacing-lg;
+      padding: $spacing-md;
     }
   }
 
@@ -1111,6 +1111,11 @@ ul {
     position: relative;
     z-index: 10;
     max-width: 600px;
+    padding: $spacing-xxl;
+
+    @include respond-to($breakpoint-mobile) {
+      padding: $spacing-md;
+    }
   }
 
   &__title {
@@ -1133,6 +1138,11 @@ ul {
     line-height: 30px;
     color: $color-white;
     margin-bottom: $spacing-lg;
+
+    a {
+      display: inline-block;
+      line-height: 1.3;
+    }
   }
 
   &__button {
