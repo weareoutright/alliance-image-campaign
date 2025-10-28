@@ -2,6 +2,9 @@
 // Alliance Image Campaign - Styles
 // ==========================================================================
 
+// Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 // Variables
 // ==========================================================================
 
@@ -15,7 +18,7 @@ $color-cream: #e7dac4;
 $color-peach-light: #f4cbac;
 
 // Typography
-$font-primary: 'ITC Avant Garde Gothic Pro', sans-serif;
+$font-primary: 'Poppins', sans-serif;
 
 // Font Weights
 $font-weight-book: 400;
@@ -186,6 +189,7 @@ ul {
 
   &__color-overlay {
     @include absolute-fill;
+    left: 70px;
     object-fit: cover;
     object-position: center;
 
