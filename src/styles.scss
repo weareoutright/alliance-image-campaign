@@ -170,7 +170,7 @@ ul {
       @include absolute-fill;
       background-color: $color-plum;
       opacity: 0;
-      z-index: 3;
+      z-index: 2;
 
       @include respond-to($breakpoint-mobile) {
         opacity: 0.85;
@@ -307,7 +307,7 @@ ul {
   &__list {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 80px;
     height: 77px;
     max-width: $breakpoint-tablet;
@@ -333,21 +333,26 @@ ul {
   }
 
   &__item {
+    height: 100%;
+
     @include respond-to($breakpoint-mobile) {
       width: 100%;
+      height: auto;
       border-top: 1px solid rgba($color-off-black, 0.1);
     }
   }
 
   &__link {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 20px;
     font-weight: $font-weight-demi;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: $color-off-black;
-    padding-bottom: 4px;
+    text-decoration: none;
     cursor: pointer;
 
     &::after {
@@ -360,6 +365,7 @@ ul {
       background-color: $color-plum;
       transform: scaleX(0);
       transition: transform 0.3s ease;
+      pointer-events: none;
     }
 
     &:hover::after,
