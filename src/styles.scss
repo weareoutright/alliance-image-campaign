@@ -1319,14 +1319,15 @@ ul {
 
   &__close {
     position: absolute;
-    top: -50px;
-    right: 0;
+    top: 16px;
+    right: 16px;
     @include flex-center;
     width: 40px;
     height: 40px;
-    color: $color-white;
-    background: none;
+    color: $color-off-black;
+    background-color: rgba($color-white, 0.9);
     border: none;
+    border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
     z-index: 10;
@@ -1336,11 +1337,6 @@ ul {
     }
 
     @include respond-to($breakpoint-mobile) {
-      top: 16px;
-      right: 16px;
-      background-color: rgba($color-white, 0.9);
-      color: $color-off-black;
-      border-radius: 50%;
       width: 36px;
       height: 36px;
     }

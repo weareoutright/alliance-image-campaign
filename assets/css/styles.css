@@ -1190,16 +1190,17 @@ ul {
 }
 .faq-modal__close {
   position: absolute;
-  top: -50px;
-  right: 0;
+  top: 16px;
+  right: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #ffffff;
-  background: none;
+  color: #0f0f0f;
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease;
   z-index: 10;
@@ -1209,11 +1210,6 @@ ul {
 }
 @media (max-width: 768px) {
   .faq-modal__close {
-    top: 16px;
-    right: 16px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #0f0f0f;
-    border-radius: 50%;
     width: 36px;
     height: 36px;
   }
