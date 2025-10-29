@@ -185,6 +185,10 @@ ul {
     object-fit: cover;
     opacity: 0.16;
     z-index: 2;
+
+    @include respond-to($breakpoint-mobile) {
+      opacity: 1;
+    }
   }
 
   &__color-overlay {
@@ -211,7 +215,7 @@ ul {
       bottom: 0;
 
       @include respond-to($breakpoint-mobile) {
-        width: 45%;
+        width: 55%;
         height: auto;
         left: -10%;
         bottom: 0;
@@ -223,11 +227,11 @@ ul {
     &--right {
       width: 400px;
       height: auto;
-      right: -30px;
+      right: -20px;
       bottom: 0;
 
       @include respond-to($breakpoint-mobile) {
-        width: 45%;
+        width: 55%;
         height: auto;
         right: -10%;
         bottom: 0;
@@ -247,6 +251,11 @@ ul {
     padding: $spacing-md;
     max-width: 550px;
     margin: 0 auto;
+
+    @include respond-to($breakpoint-mobile) {
+      justify-content: flex-start;
+      padding-top: 100px;
+    }
   }
 
   &__logo {
@@ -275,8 +284,8 @@ ul {
     }
 
     @include respond-to($breakpoint-mobile) {
-      font-size: 50px;
-      line-height: 58px;
+      font-size: 43px;
+      line-height: 50px;
       max-width: 333px;
     }
   }
