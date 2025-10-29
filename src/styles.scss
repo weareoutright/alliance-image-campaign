@@ -1267,17 +1267,33 @@ ul {
 
   &__close {
     position: absolute;
-    top: -50px;
-    right: 0;
+    top: 16px;
+    right: 16px;
     @include flex-center;
     width: 40px;
     height: 40px;
-    color: $color-white;
+    color: $color-off-black;
+    background-color: rgba($color-white, 0.9);
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
+    z-index: 10;
 
     &:hover {
       transform: scale(1.1);
+    }
+
+    @include respond-to($breakpoint-mobile) {
+      width: 36px;
+      height: 36px;
+      top: 4px;
+      right: 4px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
     }
   }
 
