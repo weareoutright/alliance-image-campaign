@@ -90,6 +90,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a:hover {
+  cursor: pointer;
+}
 // Skip to Content Link
 .skip-to-content {
   position: absolute;
@@ -293,7 +296,7 @@ ul {
   &__subtitle {
     font-size: 32px;
     font-weight: $font-weight-medium;
-    line-height: 35px;
+    line-height: 41px;
     color: $color-white;
     max-width: 575px;
     letter-spacing: 0.64px;
@@ -1056,6 +1059,18 @@ ul {
     font-weight: $font-weight-book;
     line-height: 30px;
     color: rgba($color-off-black, 0.8);
+  }
+
+  .learn-more {
+    margin-top: $spacing-md;
+    font-size: 18px;
+    font-weight: $font-weight-book;
+    line-height: 30px;
+    color: rgba($color-off-black, 0.8);
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
