@@ -725,6 +725,10 @@ ul {
     align-items: center;
     margin-bottom: $spacing-xl;
 
+    @include respond-to($breakpoint-tablet) {
+      padding: 0 $spacing-xl;
+    }
+
     @include respond-to($breakpoint-mobile) {
       flex-direction: column;
       gap: $spacing-md;
@@ -803,6 +807,10 @@ ul {
     .testimonials__carousel.animate-in & {
       opacity: 1;
       transform: translateX(0);
+    }
+
+    @include respond-to($breakpoint-tablet) {
+      padding-left: $spacing-xl;
     }
 
     @include respond-to($breakpoint-mobile) {

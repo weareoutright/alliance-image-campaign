@@ -628,6 +628,11 @@ ul {
   align-items: center;
   margin-bottom: 48px;
 }
+@media (max-width: 1080px) {
+  .testimonials__header {
+    padding: 0 48px;
+  }
+}
 @media (max-width: 768px) {
   .testimonials__header {
     flex-direction: column;
@@ -703,6 +708,11 @@ ul {
 .testimonials__carousel.animate-in .testimonials__container {
   opacity: 1;
   transform: translateX(0);
+}
+@media (max-width: 1080px) {
+  .testimonials__container {
+    padding-left: 48px;
+  }
 }
 @media (max-width: 768px) {
   .testimonials__container {

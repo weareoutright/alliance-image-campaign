@@ -118,9 +118,14 @@
   }
 
   function updateCarousel() {
-    const cardWidth = 430; // Card width in pixels
-    const gap = 32; // Gap between cards in pixels
-    const offset = currentSlide * (cardWidth + gap);
+    // Get the first card's position to calculate the scroll distance
+    if (carousel.cards.length === 0) return;
+
+    const targetCard = carousel.cards[currentSlide];
+    const firstCard = carousel.cards[0];
+
+    // Calculate offset based on the position of the target card relative to the first card
+    const offset = targetCard.offsetLeft - firstCard.offsetLeft;
 
     carousel.track.style.transform = `translateX(-${offset}px)`;
     updateCarouselButtons();
