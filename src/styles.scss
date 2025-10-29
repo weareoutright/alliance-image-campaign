@@ -969,6 +969,7 @@ ul {
     @include respond-to($breakpoint-mobile) {
       font-size: 32px;
       line-height: 42px;
+      margin-bottom: $spacing-lg;
     }
   }
 
@@ -977,6 +978,10 @@ ul {
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @include respond-to($breakpoint-mobile) {
+      margin-bottom: $spacing-xl;
     }
   }
 
@@ -989,6 +994,7 @@ ul {
     @include respond-to($breakpoint-mobile) {
       font-size: 24px;
       line-height: 36px;
+      margin-bottom: $spacing-sm;
     }
   }
 
@@ -1024,6 +1030,7 @@ ul {
     font-size: 18px;
     font-weight: $font-weight-bold;
     margin-bottom: $spacing-xs;
+    text-decoration: underline;
   }
 
   &__link-description {
@@ -1317,7 +1324,7 @@ ul {
       transform: scale(1.1);
     }
 
-    @include respond-to($breakpoint-mobile) {
+  @include respond-to($breakpoint-mobile) {
       width: 36px;
       height: 36px;
     }

@@ -853,6 +853,7 @@ ul {
   .resources__title {
     font-size: 32px;
     line-height: 42px;
+    margin-bottom: 32px;
   }
 }
 .resources__category {
@@ -860,6 +861,11 @@ ul {
 }
 .resources__category:last-child {
   margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .resources__category {
+    margin-bottom: 48px;
+  }
 }
 .resources__category-title {
   font-size: 32px;
@@ -871,6 +877,7 @@ ul {
   .resources__category-title {
     font-size: 24px;
     line-height: 36px;
+    margin-bottom: 16px;
   }
 }
 .resources__list {
@@ -899,6 +906,7 @@ ul {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 8px;
+  text-decoration: underline;
 }
 .resources__link-description {
   display: block;
