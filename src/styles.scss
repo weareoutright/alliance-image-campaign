@@ -761,27 +761,6 @@ ul {
       opacity: 0.3;
       cursor: not-allowed;
     }
-
-    &--next {
-      .testimonials.animate-carousel & {
-        animation: pulse-next .5s ease-in-out 1s 2;
-      }
-    }
-  }
-
-  @keyframes pulse-next {
-    0%, 100% {
-      background-color: $color-white;
-      border-color: $color-off-black;
-      color: $color-off-black;
-      transform: scale(1);
-    }
-    50% {
-      background-color: $color-peach;
-      border-color: $color-peach;
-      color: $color-white;
-      transform: scale(1.05);
-    }
   }
 
   &__carousel {

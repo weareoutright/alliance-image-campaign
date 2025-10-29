@@ -662,23 +662,6 @@ ul {
   opacity: 0.3;
   cursor: not-allowed;
 }
-.testimonials.animate-carousel .testimonials__control--next {
-  animation: pulse-next 0.5s ease-in-out 1s 2;
-}
-@keyframes pulse-next {
-  0%, 100% {
-    background-color: #ffffff;
-    border-color: #0f0f0f;
-    color: #0f0f0f;
-    transform: scale(1);
-  }
-  50% {
-    background-color: #e5a369;
-    border-color: #e5a369;
-    color: #ffffff;
-    transform: scale(1.05);
-  }
-}
 .testimonials__carousel {
   position: relative;
   width: 100%;
