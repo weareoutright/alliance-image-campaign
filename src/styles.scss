@@ -1040,14 +1040,14 @@ ul {
 
 .contact {
   position: relative;
-  padding: $spacing-xxl $spacing-xl;
+  padding: $spacing-xxl 0;
   min-height: 914px;
   display: flex;
   align-items: center;
   overflow: hidden;
 
   @include respond-to($breakpoint-mobile) {
-    padding: $spacing-xl $spacing-md;
+    padding: $spacing-xl 0;
     min-height: 600px;
   }
 
@@ -1104,7 +1104,9 @@ ul {
   &__content {
     position: relative;
     z-index: 10;
-    max-width: 600px;
+    max-width: $breakpoint-tablet;
+    width: 100%;
+    margin: 0 auto;
     padding: $spacing-xxl;
 
     @include respond-to($breakpoint-mobile) {
