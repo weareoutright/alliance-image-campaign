@@ -1202,6 +1202,13 @@ ul {
   max-width: 90vw;
   width: 1080px;
 }
+@media (max-width: 768px) {
+  .faq-modal__container {
+    max-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+  }
+}
 .faq-modal__close {
   position: absolute;
   top: 16px;
@@ -1242,6 +1249,9 @@ ul {
 }
 @media (max-width: 768px) {
   .faq-modal__content {
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
     padding: 32px;
     padding-top: 48px;
   }

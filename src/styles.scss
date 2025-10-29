@@ -1320,6 +1320,12 @@ ul {
     z-index: 10;
     max-width: 90vw;
     width: 1080px;
+
+    @include respond-to($breakpoint-mobile) {
+      max-width: 100vw;
+      width: 100vw;
+      height: 100vh;
+    }
   }
 
   &__close {
@@ -1361,6 +1367,9 @@ ul {
     padding: $spacing-xxl;
 
     @include respond-to($breakpoint-mobile) {
+      max-height: 100vh;
+      height: 100vh;
+      border-radius: 0;
       padding: $spacing-lg;
       padding-top: $spacing-xl;
     }
