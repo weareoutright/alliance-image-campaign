@@ -374,6 +374,7 @@ ul {
     align-items: center;
     height: 57px;
     padding: 0 24px;
+    margin: 0 auto;
     gap: 12px;
     cursor: pointer;
     background: none;
