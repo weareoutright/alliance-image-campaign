@@ -1121,6 +1121,10 @@ ul {
   align-items: center;
   overflow: hidden;
 
+  * {
+    transition: all ease-in-out 0.3s;
+  }
+
   @include respond-to($breakpoint-mobile) {
     padding: $spacing-xl 0;
     min-height: 600px;
@@ -1152,21 +1156,24 @@ ul {
   &__shape-overlay {
     position: absolute;
     top: 0;
-    left: 0;
-    height: 120%;
-    width: auto;
-    object-fit: cover;
+    left: -37%;
+    height: auto;
+    width: 170%;
+    max-width: none;
     object-position: center;
     z-index: 2;
     mix-blend-mode: multiply;
 
     // At tablet breakpoint, allow to extend beyond viewport if needed
-    @media screen and (min-width: $breakpoint-mobile) {
-      left: -10%;
+    @media screen and (min-width: 1326px) {
+      //left: -10%;
+      //height: 120%;
+      width: 100%;
+      left: -160px;
     }
 
-    @media screen and (min-width: 1700px) {
-      left: 0;
+    @media screen and (min-width: 1132px) and (max-width: 1300px) {
+      left: -50%;
     }
 
     @include respond-to($breakpoint-mobile) {

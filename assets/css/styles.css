@@ -988,6 +988,9 @@ ul {
   align-items: center;
   overflow: hidden;
 }
+.contact * {
+  transition: all ease-in-out 0.3s;
+}
 @media (max-width: 768px) {
   .contact {
     padding: 48px 0;
@@ -1030,22 +1033,23 @@ ul {
 .contact__shape-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  height: 120%;
-  width: auto;
-  object-fit: cover;
+  left: -37%;
+  height: auto;
+  width: 170%;
+  max-width: none;
   object-position: center;
   z-index: 2;
   mix-blend-mode: multiply;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1326px) {
   .contact__shape-overlay {
-    left: -10%;
+    width: 100%;
+    left: -160px;
   }
 }
-@media screen and (min-width: 1700px) {
+@media screen and (min-width: 1132px) and (max-width: 1300px) {
   .contact__shape-overlay {
-    left: 0;
+    left: -50%;
   }
 }
 @media (max-width: 768px) {
