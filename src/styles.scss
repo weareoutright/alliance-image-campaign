@@ -212,9 +212,9 @@ ul {
       left: 5%
     }
 
-    @media screen and (min-width: 1400px) {
-      height: 200%;
-      top: -200px;
+    @media screen and (min-width: 1500px) {
+      width: 200%;
+      top: 0;
     }
 
     @include respond-to($breakpoint-mobile) {
