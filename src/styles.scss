@@ -1131,11 +1131,24 @@ ul {
   }
 
   &__shape-overlay {
-    @include absolute-fill;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 120%;
+    width: auto;
     object-fit: cover;
     object-position: center;
     z-index: 2;
     mix-blend-mode: multiply;
+
+    // At tablet breakpoint, allow to extend beyond viewport if needed
+    @media screen and (min-width: $breakpoint-mobile) {
+      left: -10%;
+    }
+
+    @media screen and (min-width: 1700px) {
+      left: 0;
+    }
 
     @include respond-to($breakpoint-mobile) {
       display: none;
