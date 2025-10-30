@@ -825,16 +825,25 @@ ul {
 .testimonial-card--sage .testimonial-card__play svg {
   color: #a3c2bf;
 }
+.testimonial-card--sage .testimonial-card__play:hover {
+  color: #a3c2bf;
+}
 .testimonial-card--peach .testimonial-card__play {
   border-color: #e5a369;
 }
 .testimonial-card--peach .testimonial-card__play svg {
   color: #e5a369;
 }
+.testimonial-card--peach .testimonial-card__play:hover {
+  color: #e5a369;
+}
 .testimonial-card--plum .testimonial-card__play {
   border-color: #5d113c;
 }
 .testimonial-card--plum .testimonial-card__play svg {
+  color: #5d113c;
+}
+.testimonial-card--plum .testimonial-card__play:hover {
   color: #5d113c;
 }
 .testimonial-card__play:hover {

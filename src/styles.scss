@@ -923,6 +923,10 @@ ul {
       svg {
         color: $color-sage;
       }
+
+      &:hover {
+        color: $color-sage;
+      }
     }
 
     .testimonial-card--peach & {
@@ -931,12 +935,20 @@ ul {
       svg {
         color: $color-peach;
       }
+
+      &:hover {
+        color: $color-peach;
+      }
     }
 
     .testimonial-card--plum & {
       border-color: $color-plum;
 
       svg {
+        color: $color-plum;
+      }
+
+      &:hover {
         color: $color-plum;
       }
     }
