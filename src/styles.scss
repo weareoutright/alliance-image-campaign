@@ -162,6 +162,10 @@ ul {
   overflow: hidden;
   background-color: $color-white;
 
+  * {
+    transition: all 0.3s ease;
+  }
+
   @include respond-to($breakpoint-mobile) {
     min-height: 600px;
   }
@@ -195,10 +199,23 @@ ul {
   }
 
   &__color-overlay {
-    @include absolute-fill;
-    left: 70px;
+    position: absolute;
+    top: -180px;
+    left: 0;
+    height: 170%;
+    width: auto;
     object-fit: cover;
-    object-position: center;
+    object-position: bottom left;
+
+    // At tablet breakpoint, allow to extend beyond viewport
+    @media screen and (min-width: 1212px) {
+      left: 5%
+    }
+
+    @media screen and (min-width: 1400px) {
+      height: 200%;
+      top: -200px;
+    }
 
     @include respond-to($breakpoint-mobile) {
       display: none;
@@ -210,36 +227,36 @@ ul {
     object-fit: cover;
     z-index: 3;
     border-radius: 0;
+    width: 34%;
+    height: auto;
+    max-width: 400px;
+
+    @include respond-to($breakpoint-tablet) {
+      width: 55%;
+      top: auto;
+      transform: none;
+    }
+
+    @include respond-to($breakpoint-mobile) {
+      width: 58%;
+      max-width: 284px;
+    }
 
     &--left {
-      width: 400px;
-      height: auto;
       left: 0;
       bottom: 0;
 
-      @include respond-to($breakpoint-mobile) {
-        width: 55%;
-        height: auto;
+      @include respond-to($breakpoint-tablet) {
         left: -10%;
-        bottom: 0;
-        top: auto;
-        transform: none;
       }
     }
 
     &--right {
-      width: 400px;
-      height: auto;
       right: -20px;
       bottom: 0;
 
-      @include respond-to($breakpoint-mobile) {
-        width: 55%;
-        height: auto;
+      @include respond-to($breakpoint-tablet) {
         right: -10%;
-        bottom: 0;
-        top: auto;
-        transform: none;
       }
     }
   }
