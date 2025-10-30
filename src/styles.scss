@@ -397,6 +397,7 @@ ul {
     color: $color-off-black;
     text-decoration: none;
     cursor: pointer;
+    transition: color 0.3s ease;
 
     &::after {
       content: '';
@@ -409,6 +410,11 @@ ul {
       transform: scaleX(0);
       transition: transform 0.3s ease;
       pointer-events: none;
+    }
+
+    &:hover,
+    &--active {
+      color: $color-plum;
     }
 
     &:hover::after,

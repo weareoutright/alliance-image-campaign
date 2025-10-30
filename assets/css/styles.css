@@ -333,6 +333,7 @@ ul {
   color: #0f0f0f;
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 .nav__link::after {
   content: "";
@@ -345,6 +346,9 @@ ul {
   transform: scaleX(0);
   transition: transform 0.3s ease;
   pointer-events: none;
+}
+.nav__link:hover, .nav__link--active {
+  color: #5d113c;
 }
 .nav__link:hover::after, .nav__link--active::after {
   transform: scaleX(1);
