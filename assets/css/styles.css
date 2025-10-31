@@ -270,8 +270,8 @@ ul {
 }
 @media (max-width: 768px) {
   .hero__subtitle {
-    font-size: 32px;
-    line-height: 35px;
+    font-size: 23px;
+    line-height: 29px;
     max-width: 333px;
   }
 }
