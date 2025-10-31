@@ -1109,7 +1109,29 @@ ul {
     color: rgba($color-off-black, 0.8);
 
     a {
+      position: relative;
+      display: inline-block;
       text-decoration: underline;
+      padding: 2px 4px;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: rgba(229, 163, 105, 0.1);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+        z-index: -1;
+      }
+
+      &:hover::before {
+        transform: scaleY(1);
+      }
     }
   }
 }

@@ -982,7 +982,27 @@ ul {
   color: rgba(15, 15, 15, 0.8);
 }
 .resources .learn-more a {
+  position: relative;
+  display: inline-block;
   text-decoration: underline;
+  padding: 2px 4px;
+  z-index: 1;
+}
+.resources .learn-more a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(229, 163, 105, 0.1);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.resources .learn-more a:hover::before {
+  transform: scaleY(1);
 }
 
 .contact {
