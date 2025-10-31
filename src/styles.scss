@@ -1061,7 +1061,7 @@ ul {
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-lg;
+    column-gap: $spacing-lg;
     margin-left: -$spacing-md;// offset to match the padding on the items
 
     @include respond-to($breakpoint-mobile) {
@@ -1102,7 +1102,7 @@ ul {
   }
 
   .learn-more {
-    margin-top: $spacing-md;
+    margin-top: $spacing-lg;
     font-size: 18px;
     font-weight: $font-weight-book;
     line-height: 30px;
