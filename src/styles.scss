@@ -329,8 +329,8 @@ ul {
     }
 
     @include respond-to($breakpoint-mobile) {
-      font-size: 32px;
-      line-height: 35px;
+      font-size: 23px;
+      line-height: 29px;
       max-width: 333px;
     }
   }
