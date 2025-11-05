@@ -916,15 +916,15 @@ ul {
 
 .testimonial-card {
   position: relative;
-  flex: 0 0 430px;
-  height: 488px;
+  flex: 0 0 361px;
+  height: 410px;
   border-radius: $radius-lg;
   overflow: hidden;
   background-color: $color-white;
 
   @include respond-to($breakpoint-mobile) {
-    flex: 0 0 300px;
-    height: 400px;
+    flex: 0 0 252px;
+    height: 336px;
   }
 
   &::after {
@@ -1027,21 +1027,21 @@ ul {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 25px 32px;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     z-index: 2;
   }
 
   &__name {
-    font-size: 27px;
+    font-size: 22px;
     line-height: 25px;
     font-weight: $font-weight-bold;
     margin-bottom: $spacing-xs;
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: $font-weight-book;
     line-height: 22px;
   }
