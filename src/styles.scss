@@ -534,6 +534,10 @@ ul {
   }
 }
 
+main {
+  overflow: hidden;
+}
+
 // About Section (Info Cards)
 // ==========================================================================
 
@@ -1199,7 +1203,6 @@ ul {
   min-height: 914px;
   display: flex;
   align-items: center;
-  overflow: hidden;
 
   * {
     transition: all ease-in-out 0.3s;
@@ -1246,10 +1249,9 @@ ul {
 
     // At tablet breakpoint, allow to extend beyond viewport if needed
     @media screen and (min-width: 1326px) {
-      //left: -10%;
-      //height: 120%;
-      width: 100%;
-      left: -160px;
+      width: 150%;
+      left: -20%;
+      top: -10%;
     }
 
     @media screen and (min-width: 1132px) and (max-width: 1300px) {
@@ -1359,19 +1361,25 @@ ul {
 // ==========================================================================
 
 .footer {
-  max-width: $breakpoint-desktop;
-  margin: 0 auto;
-  padding: 40px $spacing-xl;
+  position: relative;
+  z-index: 100;
+  width: 100%;
   background-color: $color-white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  @include respond-to($breakpoint-mobile) {
-    flex-direction: column;
-    gap: $spacing-md;
-    padding: $spacing-lg $spacing-md;
-    text-align: center;
+  &__container {
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+    padding: 40px $spacing-xl;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond-to($breakpoint-mobile) {
+      flex-direction: column;
+      gap: $spacing-md;
+      padding: $spacing-lg $spacing-md;
+      text-align: center;
+    }
   }
 
   &__logo {
