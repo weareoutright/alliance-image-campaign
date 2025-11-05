@@ -335,6 +335,59 @@ ul {
       max-width: 333px;
     }
   }
+
+  &__scroll-prompt {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    z-index: 5;
+    color: $color-white;
+
+    @include respond-to($breakpoint-mobile) {
+      bottom: 24px;
+      gap: 12px;
+    }
+  }
+
+  &__scroll-arrow {
+    width: 32px;
+    height: 16px;
+    animation: bounce 2s ease-in-out infinite;
+
+    @include respond-to($breakpoint-mobile) {
+      width: 28px;
+      height: 16px;
+    }
+  }
+
+  &__scroll-text {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.95;
+
+    @include respond-to($breakpoint-mobile) {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.7;
+  }
 }
 
 // Navigation
