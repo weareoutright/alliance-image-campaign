@@ -260,6 +260,7 @@ ul {
   color: #ffffff;
   max-width: 575px;
   letter-spacing: 0.64px;
+  text-wrap: pretty;
 }
 @media (max-width: 1088px) and (min-width: 769px) {
   .hero__subtitle {
