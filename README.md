@@ -346,9 +346,9 @@ npm run build
 npm run build:preview
 ```
 
-This generates a `/build` folder with:
+This generates a `/image-campaign-build` folder with:
 - `index.html` - Complete HTML with inlined, minified CSS (~66KB)
-- `assets/images/` - All image files (30 files)
+- `assets/images/` - All image files (20 files)
 - `IMPLEMENTATION.md` - Instructions for client's tech team
 
 ### CSS Custom Properties for WordPress

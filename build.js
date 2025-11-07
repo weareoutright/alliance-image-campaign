@@ -17,12 +17,12 @@ const { execSync } = require('child_process');
 // Configuration
 const CONFIG = {
   srcDir: __dirname,
-  buildDir: path.join(__dirname, 'build'),
+  buildDir: path.join(__dirname, 'image-campaign-build'),
   scssFile: path.join(__dirname, 'src', 'styles.scss'),
   cssFile: path.join(__dirname, 'assets', 'css', 'styles.css'),
   htmlFile: path.join(__dirname, 'index.html'),
   assetsDir: path.join(__dirname, 'assets', 'images'),
-  buildAssetsDir: path.join(__dirname, 'build', 'assets', 'images'),
+  buildAssetsDir: path.join(__dirname, 'image-campaign-build', 'assets', 'images'),
   assetPathVar: '--asset-path'
 };
 

@@ -10,7 +10,7 @@
     "serve": "npx http-server -p 8000 -o",
     "dev": "npm run sass:watch & npm run serve",
     "build": "node build.js",
-    "build:preview": "npm run build && npx http-server build -p 8001 -o"
+    "build:preview": "npm run build && npx http-server image-campaign-build -p 8001 -o"
   },
   "keywords": ["healthcare", "landing-page", "responsive", "scss", "bem"],
   "author": "Alliance for Care at Home",
