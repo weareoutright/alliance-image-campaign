@@ -4,6 +4,7 @@ package-lock.json
 
 # Build artifacts
 # assets/css/ is intentionally tracked for GitHub Pages deployment
+build/
 
 # IDE
 .idea/

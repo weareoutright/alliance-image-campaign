@@ -110,17 +110,26 @@ You need a SCSS compiler. Options include:
 
 3. **Using Dart Sass**: Download from https://sass-lang.com/install
 
-### Compile SCSS
+### Development Scripts
 
 ```bash
-# Watch mode (auto-compile on save)
-sass --watch styles.scss:styles.css
+# Install dependencies
+npm install
 
-# One-time compile
-sass styles.scss styles.css
+# Watch mode (auto-compile SCSS on save)
+npm run sass:watch
 
-# Minified production version
-sass --style=compressed styles.scss:styles.css
+# One-time SCSS compile
+npm run sass:build
+
+# Minified SCSS for production
+npm run sass:build:prod
+
+# Run local development server
+npm run serve
+
+# Development mode (watch SCSS + serve)
+npm run dev
 ```
 
 ### Running the Site
@@ -324,6 +333,40 @@ Key responsive behaviors:
 - Carousel: Reduced card size and padding on mobile
 - Hero: Adjusted image positioning on mobile
 - Footer: Stacked layout on mobile
+
+## 📦 Building for WordPress
+
+To create an optimized build for WordPress implementation:
+
+```bash
+# Build optimized version for client delivery
+npm run build
+
+# Build and preview the output
+npm run build:preview
+```
+
+This generates a `/build` folder with:
+- `index.html` - Complete HTML with inlined, minified CSS (~66KB)
+- `assets/images/` - All image files (30 files)
+- `IMPLEMENTATION.md` - Instructions for client's tech team
+
+### CSS Custom Properties for WordPress
+
+The build process converts all CSS image paths to use a CSS custom property (`--asset-path`), making it easy for the client's tech team to update image paths for WordPress:
+
+```css
+:root {
+  --asset-path: '../assets/images'; /* Default - UPDATE for WordPress */
+}
+```
+
+**Client only needs to:**
+1. Upload images to WordPress
+2. Update ONE line: `--asset-path: '/wp-content/uploads/alliance-campaign/images'`
+3. All image URLs automatically update
+
+See `build/IMPLEMENTATION.md` for complete WordPress setup instructions.
 
 ## 🚀 Deployment
 
