@@ -149,7 +149,7 @@ console.log(`✅ Copied ${copiedCount} image files\n`);
 const instructions = `# WordPress Implementation Instructions
 
 ## Files Included
-- \`build/index.html\` - Complete HTML with inlined CSS
+- \`build/index.html\` - Complete HTML with inlined JS and CSS
 - \`build/assets/images/\` - All image assets (${copiedCount} files)
 
 ## Implementation Steps

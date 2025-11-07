@@ -4,7 +4,7 @@ package-lock.json
 
 # Build artifacts
 # assets/css/ is intentionally tracked for GitHub Pages deployment
-image-campaign-build/
+# image-campaign-build/ is intentionally tracked for client delivery
 
 # IDE
 .idea/
