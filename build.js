@@ -111,14 +111,14 @@ html = html.replace(
 
 console.log('✅ CSS inlined successfully\n');
 
-// Step 6: Create build directory structure
+// Step 6: Clean and create build directory structure
 console.log('📁 Creating build directory structure...');
-if (!fs.existsSync(CONFIG.buildDir)) {
-  fs.mkdirSync(CONFIG.buildDir, { recursive: true });
+if (fs.existsSync(CONFIG.buildDir)) {
+  console.log('   Removing old build directory...');
+  fs.rmSync(CONFIG.buildDir, { recursive: true, force: true });
 }
-if (!fs.existsSync(CONFIG.buildAssetsDir)) {
-  fs.mkdirSync(CONFIG.buildAssetsDir, { recursive: true });
-}
+fs.mkdirSync(CONFIG.buildDir, { recursive: true });
+fs.mkdirSync(CONFIG.buildAssetsDir, { recursive: true });
 console.log('✅ Build directories created\n');
 
 // Step 7: Write the built HTML file
