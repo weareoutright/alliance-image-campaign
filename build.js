@@ -23,6 +23,8 @@ const CONFIG = {
   htmlFile: path.join(__dirname, 'index.html'),
   assetsDir: path.join(__dirname, 'assets', 'images'),
   buildAssetsDir: path.join(__dirname, 'image-campaign-build', 'assets', 'images'),
+  videosDir: path.join(__dirname, 'assets', 'videos'),
+  buildVideosDir: path.join(__dirname, 'image-campaign-build', 'assets', 'videos'),
   assetPathVar: '--asset-path'
 };
 
@@ -119,6 +121,7 @@ if (fs.existsSync(CONFIG.buildDir)) {
 }
 fs.mkdirSync(CONFIG.buildDir, { recursive: true });
 fs.mkdirSync(CONFIG.buildAssetsDir, { recursive: true });
+fs.mkdirSync(CONFIG.buildVideosDir, { recursive: true });
 console.log('✅ Build directories created\n');
 
 // Step 7: Write the built HTML file
@@ -145,12 +148,46 @@ imageFiles.forEach(file => {
 
 console.log(`✅ Copied ${copiedCount} image files\n`);
 
-// Step 9: Generate implementation instructions
+// Step 9: Copy video assets
+console.log('🎬 Copying video assets...');
+let videoCount = 0;
+
+if (fs.existsSync(CONFIG.videosDir)) {
+  const videoFiles = fs.readdirSync(CONFIG.videosDir);
+
+  videoFiles.forEach(file => {
+    const srcPath = path.join(CONFIG.videosDir, file);
+    const destPath = path.join(CONFIG.buildVideosDir, file);
+
+    // Only copy files (not directories)
+    if (fs.statSync(srcPath).isFile()) {
+      fs.copyFileSync(srcPath, destPath);
+      videoCount++;
+    }
+  });
+
+  console.log(`✅ Copied ${videoCount} video files\n`);
+} else {
+  console.log('⚠️  No videos directory found, skipping...\n');
+}
+
+// Step 10: Generate implementation instructions
+const videoSection = videoCount > 0 ? `
+
+### 2. Upload Videos to WordPress
+Upload all videos from \`build/assets/videos/\` to your WordPress site.
+
+**Recommended location:**
+\`/wp-content/uploads/alliance-campaign/videos/\`
+
+**Important:** Update video \`src\` attributes in the HTML to match your upload path.` : '';
+
 const instructions = `# WordPress Implementation Instructions
 
 ## Files Included
 - \`build/index.html\` - Complete HTML with inlined JS and CSS
-- \`build/assets/images/\` - All image assets (${copiedCount} files)
+- \`build/assets/images/\` - All image assets (${copiedCount} files)${videoCount > 0 ? `
+- \`build/assets/videos/\` - All video assets (${videoCount} files)` : ''}
 
 ## Implementation Steps
 
@@ -158,9 +195,9 @@ const instructions = `# WordPress Implementation Instructions
 Upload all images from \`build/assets/images/\` to your WordPress site.
 
 **Recommended location:**
-\`/wp-content/uploads/alliance-campaign/images/\`
+\`/wp-content/uploads/alliance-campaign/images/\`${videoSection}
 
-### 2. Update the Asset Path
+### ${videoCount > 0 ? '3' : '2'}. Update the Asset Path
 Open \`build/index.html\` and find the CSS \`:root\` declaration near the top of the \`<style>\` tag.
 
 Update the \`--asset-path\` variable to match where you uploaded the images:
@@ -171,22 +208,23 @@ Update the \`--asset-path\` variable to match where you uploaded the images:
 }
 \`\`\`
 
-### 3. Add HTML to WordPress
+### ${videoCount > 0 ? '4' : '3'}. Add HTML to WordPress
 Copy the contents of \`build/index.html\` (from \`<body>\` to \`</body>\`) into your WordPress page editor.
 
 **Note:** The page includes inline JavaScript for interactive features (carousel, modals, etc.)
 
-### 4. Test
-Verify all images load correctly and interactive features work:
+### ${videoCount > 0 ? '5' : '4'}. Test
+Verify all images${videoCount > 0 ? ' and videos' : ''} load correctly and interactive features work:
 - Hero section images
 - Info card images
 - Testimonial carousel images
-- Background images
+- Background images${videoCount > 0 ? '\n- Video playback' : ''}
 - Modal functionality
 
 ## File Sizes
 - HTML (with inlined CSS): ~${Math.round(html.length / 1024)}KB
-- Total images: ${copiedCount} files
+- Total images: ${copiedCount} files${videoCount > 0 ? `
+- Total videos: ${videoCount} files` : ''}
 
 ## Support
 If you need to make CSS changes after implementation, the styles are in the \`<style>\` tag in the \`<head>\` section.
@@ -201,5 +239,8 @@ console.log('✨ Build complete!\n');
 console.log('📦 Output:');
 console.log(`   - ${buildHtmlPath}`);
 console.log(`   - ${CONFIG.buildAssetsDir}/ (${copiedCount} images)`);
+if (videoCount > 0) {
+  console.log(`   - ${CONFIG.buildVideosDir}/ (${videoCount} videos)`);
+}
 console.log(`   - ${instructionsPath}`);
 console.log('\n🎉 Ready for WordPress implementation!');
